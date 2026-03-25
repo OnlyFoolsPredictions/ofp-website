@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PL Table — OFP Only Fools Predictions</title>
+<meta name="description" content="Full Premier League table for the 2026/27 season, updated weekly on OFP Only Fools Predictions.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1923; font-family: Arial, sans-serif; color: #fff; min-height: 100vh; }
+  a { text-decoration: none; color: inherit; }
+
+  nav { background: #1B2A4A; border-bottom: 2px solid #F5A800; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; flex-direction: column; padding: 10px 0; }
+  .nav-logo .ofp { color: #F5A800; font-size: 30px; font-weight: 900; letter-spacing: 7px; font-family: 'Arial Black', Arial, sans-serif; line-height: 1; }
+  .nav-logo .sub { color: #F5A800; font-size: 9px; letter-spacing: 3px; opacity: 0.75; font-weight: 700; margin-top: 2px; }
+  .nav-links { display: flex; }
+  .nav-links a { color: rgba(245,168,0,0.65); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 22px 16px; text-transform: uppercase; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; display: block; }
+  .nav-links a:hover, .nav-links a.active { color: #F5A800; border-bottom: 3px solid #F5A800; }
+  .nav-enter { background: #F5A800; color: #1B2A4A !important; border-radius: 6px; padding: 8px 16px !important; margin-left: 8px; align-self: center; border-bottom: none !important; }
+  .nav-enter:hover { background: #e09600 !important; border-bottom: none !important; }
+  @media (max-width: 720px) { nav { flex-direction: column; align-items: flex-start; padding: 12px 16px; } .nav-links { flex-wrap: wrap; } .nav-links a { padding: 10px 10px; font-size: 10px; } }
+
+  .page-header { background: #1B2A4A; padding: 28px 32px 24px; border-bottom: 1px solid rgba(245,168,0,0.2); }
+  .page-header h1 { color: #F5A800; font-size: 22px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 2px; margin-bottom: 6px; }
+  .page-header p { color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 1px; }
+
+  .main { max-width: 900px; margin: 0 auto; padding: 24px; }
+
+  .table-card { background: #1B2A4A; border-radius: 10px; overflow: hidden; }
+  .table-card-header { background: rgba(245,168,0,0.1); padding: 12px 20px; border-bottom: 1px solid rgba(245,168,0,0.2); display: flex; justify-content: space-between; align-items: center; }
+  .table-card-header h2 { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .table-card-header span { color: rgba(245,168,0,0.45); font-size: 10px; letter-spacing: 1px; }
+
+  .pl-head { display: grid; grid-template-columns: 36px 36px 1fr 36px 36px 36px 36px 44px 48px; gap: 2px; padding: 10px 16px 8px; border-bottom: 1px solid rgba(245,168,0,0.15); }
+  .pl-head span { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(245,168,0,0.45); text-align: center; }
+  .pl-head .h-club { text-align: left; }
+
+  .pl-row { display: grid; grid-template-columns: 36px 36px 1fr 36px 36px 36px 36px 44px 48px; align-items: center; gap: 2px; padding: 8px 16px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+  .pl-row:last-child { border-bottom: none; }
+  .pl-row:hover { background: rgba(245,168,0,0.04); }
+  .pl-row.zone-cl { background: rgba(245,168,0,0.12); }
+  .pl-row.zone-cl:hover { background: rgba(245,168,0,0.18); }
+  .pl-row.zone-uel { background: rgba(245,168,0,0.06); }
+  .pl-row.zone-rel { background: rgba(220,50,50,0.1); }
+  .pl-row.zone-rel:hover { background: rgba(220,50,50,0.16); }
+
+  .c-pos { font-size: 13px; font-weight: 700; color: rgba(245,168,0,0.65); text-align: center; }
+  .c-move { text-align: center; font-size: 11px; }
+  .c-club { font-size: 13px; font-weight: 700; color: #fff; }
+  .zone-rel .c-club { color: rgba(255,255,255,0.7); }
+  .c-stat { font-size: 12px; color: rgba(255,255,255,0.65); text-align: center; }
+  .c-pts { font-size: 14px; font-weight: 700; color: #F5A800; text-align: center; }
+  .zone-rel .c-pts { color: #ff8080; }
+  .zone-rel .c-pos { color: #ff8080; }
+  .up { color: #4cd964; }
+  .down { color: #ff5c5c; }
+  .same { color: rgba(255,255,255,0.18); }
+
+  .zone-divider { height: 3px; background: rgba(245,168,0,0.15); }
+  .zone-divider.rel { background: rgba(220,50,50,0.2); }
+
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; padding: 14px 16px; border-top: 1px solid rgba(245,168,0,0.12); background: rgba(245,168,0,0.03); }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 10px; color: rgba(255,255,255,0.5); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  footer { background: #1B2A4A; border-top: 2px solid rgba(245,168,0,0.25); padding: 24px 32px 20px; text-align: center; margin-top: 32px; }
+  .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .footer-social a { color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-social a:hover { color: #F5A800; }
+  .footer-divider { border: none; border-top: 1px solid rgba(245,168,0,0.15); margin: 14px 0; }
+  .footer-tagline { color: #F5A800; font-size: 13px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 3px; margin-bottom: 12px; }
+  .footer-disclaimer { color: rgba(255,255,255,0.3); font-size: 10px; line-height: 1.7; max-width: 680px; margin: 0 auto 8px; }
+  .footer-copy { color: rgba(245,168,0,0.3); font-size: 10px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span class="ofp">OFP</span><span class="sub">Only Fools Predictions</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="table.html" class="active">PL Table</a>
+    <a href="results.html">Results</a>
+    <a href="formguide.html">Form Guide</a>
+    <a href="about.html">About</a>
+    <a href="enter.html" class="nav-enter">Enter Free</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Premier League Table</h1>
+  <p>Season One &mdash; 2026/27 &nbsp;|&nbsp; Gameweek 12 of 38</p>
+</div>
+
+<div class="main">
+  <div class="table-card">
+    <div class="table-card-header">
+      <h2>2026/27 Premier League &mdash; Gameweek 12</h2>
+      <span>Updated weekly</span>
+    </div>
+
+    <div class="pl-head">
+      <span></span><span></span><span class="h-club">Club</span>
+      <span>P</span><span>W</span><span>D</span><span>L</span><span>GD</span><span>Pts</span>
+    </div>
+
+    <div class="pl-row zone-cl">
+      <div class="c-pos">1</div><div class="c-move"><span class="up">&#9650;1</span></div><div class="c-club">Arsenal</div>
+      <div class="c-stat">12</div><div class="c-stat">9</div><div class="c-stat">2</div><div class="c-stat">1</div><div class="c-stat">+22</div><div class="c-pts">29</div>
+    </div>
+    <div class="pl-row zone-cl">
+      <div class="c-pos">2</div><div class="c-move"><span class="down">&#9660;1</span></div><div class="c-club">Liverpool</div>
+      <div class="c-stat">12</div><div class="c-stat">9</div><div class="c-stat">1</div><div class="c-stat">2</div><div class="c-stat">+19</div><div class="c-pts">28</div>
+    </div>
+    <div class="pl-row zone-cl">
+      <div class="c-pos">3</div><div class="c-move"><span class="same">&mdash;</span></div><div class="c-club">Man City</div>
+      <div class="c-stat">12</div><div class="c-stat">8</div><div class="c-stat">2</div><div class="c-stat">2</div><div class="c-stat">+17</div><div class="c-pts">26</div>
+    </div>
+    <div class="pl-row zone-cl">
+      <div class="c-pos">4</div><div class="c-move"><span class="up">&#9650;2</span></div><div class="c-club">Chelsea</div>
+      <div class="c-stat">12</div><div class="c-stat">7</div><div class="c-stat">3</div><div class="c-stat">2</div><div class="c-stat">+14</div><div class="c-pts">24</div>
+    </div>
+    <div class="zone-divider"></div>
+    <div class="pl-row zone-uel">
+      <div class="c-pos">5</div><div class="c-move"><span class="down">&#9660;1</span></div><div class="c-club">Tottenham</div>
+      <div class="c-stat">12</div><div class="c-stat">7</div><div class="c-stat">2</div><div class="c-stat">3</div><div class="c-stat">+9</div><div class="c-pts">23</div>
+    </div>
+    <div class="pl-row zone-uel">
+      <div class="c-pos">6</div><div class="c-move"><span class="up">&#9650;1</span></div><div class="c-club">Aston Villa</div>
+      <div class="c-stat">12</div><div class="c-stat">6</div><div class="c-stat">3</div><div class="c-stat">3</div><div class="c-stat">+7</div><div class="c-pts">21</div>
+    </div>
+    <div class="zone-divider"></div>
+    <div class="pl-row">
+      <div class="c-pos">7</div><div class="c-move"><span class="same">&mdash;</span></div><div class="c-club">Newcastle</div>
+      <div class="c-stat">12</div><div class="c-stat">6</div><div class="c-stat">2</div><div class="c-stat">4</div><div class="c-stat">+5</div><div class="c-pts">20</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">8</div><div class="c-move"><span class="up">&#9650;3</span></div><div class="c-club">Man United</div>
+      <div class="c-stat">12</div><div class="c-stat">5</div><div class="c-stat">3</div><div class="c-stat">4</div><div class="c-stat">+2</div><div class="c-pts">18</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">9</div><div class="c-move"><span class="down">&#9660;2</span></div><div class="c-club">Brighton</div>
+      <div class="c-stat">12</div><div class="c-stat">5</div><div class="c-stat">2</div><div class="c-stat">5</div><div class="c-stat">+1</div><div class="c-pts">17</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">10</div><div class="c-move"><span class="same">&mdash;</span></div><div class="c-club">West Ham</div>
+      <div class="c-stat">12</div><div class="c-stat">4</div><div class="c-stat">4</div><div class="c-stat">4</div><div class="c-stat">-1</div><div class="c-pts">16</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">11</div><div class="c-move"><span class="up">&#9650;1</span></div><div class="c-club">Fulham</div>
+      <div class="c-stat">12</div><div class="c-stat">4</div><div class="c-stat">3</div><div class="c-stat">5</div><div class="c-stat">-2</div><div class="c-pts">15</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">12</div><div class="c-move"><span class="down">&#9660;1</span></div><div class="c-club">Wolves</div>
+      <div class="c-stat">12</div><div class="c-stat">4</div><div class="c-stat">2</div><div class="c-stat">6</div><div class="c-stat">-4</div><div class="c-pts">14</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">13</div><div class="c-move"><span class="same">&mdash;</span></div><div class="c-club">Everton</div>
+      <div class="c-stat">12</div><div class="c-stat">3</div><div class="c-stat">4</div><div class="c-stat">5</div><div class="c-stat">-5</div><div class="c-pts">13</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">14</div><div class="c-move"><span class="up">&#9650;2</span></div><div class="c-club">Brentford</div>
+      <div class="c-stat">12</div><div class="c-stat">3</div><div class="c-stat">3</div><div class="c-stat">6</div><div class="c-stat">-6</div><div class="c-pts">12</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">15</div><div class="c-move"><span class="down">&#9660;1</span></div><div class="c-club">Crystal Palace</div>
+      <div class="c-stat">12</div><div class="c-stat">3</div><div class="c-stat">3</div><div class="c-stat">6</div><div class="c-stat">-7</div><div class="c-pts">12</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">16</div><div class="c-move"><span class="same">&mdash;</span></div><div class="c-club">Nottm Forest</div>
+      <div class="c-stat">12</div><div class="c-stat">3</div><div class="c-stat">2</div><div class="c-stat">7</div><div class="c-stat">-9</div><div class="c-pts">11</div>
+    </div>
+    <div class="pl-row">
+      <div class="c-pos">17</div><div class="c-move"><span class="down">&#9660;1</span></div><div class="c-club">Bournemouth</div>
+      <div class="c-stat">12</div><div class="c-stat">2</div><div class="c-stat">4</div><div class="c-stat">6</div><div class="c-stat">-10</div><div class="c-pts">10</div>
+    </div>
+    <div class="zone-divider rel"></div>
+    <div class="pl-row zone-rel">
+      <div class="c-pos">18</div><div class="c-move"><span class="same">&mdash;</span></div><div class="c-club">Leicester</div>
+      <div class="c-stat">12</div><div class="c-stat">2</div><div class="c-stat">3</div><div class="c-stat">7</div><div class="c-stat">-12</div><div class="c-pts">9</div>
+    </div>
+    <div class="pl-row zone-rel">
+      <div class="c-pos">19</div><div class="c-move"><span class="down">&#9660;2</span></div><div class="c-club">Ipswich</div>
+      <div class="c-stat">12</div><div class="c-stat">2</div><div class="c-stat">2</div><div class="c-stat">8</div><div class="c-stat">-15</div><div class="c-pts">8</div>
+    </div>
+    <div class="pl-row zone-rel">
+      <div class="c-pos">20</div><div class="c-move"><span class="same">&mdash;</span></div><div class="c-club">Southampton</div>
+      <div class="c-stat">12</div><div class="c-stat">1</div><div class="c-stat">2</div><div class="c-stat">9</div><div class="c-stat">-22</div><div class="c-pts">5</div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:rgba(245,168,0,0.5);"></div>Champions League (Top 4)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:rgba(245,168,0,0.25);"></div>Europa League (5th &amp; 6th)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:rgba(220,50,50,0.4);"></div>Relegation Zone (Bottom 3)</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-social">
+    <a href="https://youtube.com/@OnlyFoolsPredictions" target="_blank">YouTube</a>
+    <a href="https://twitter.com/OFPredictions" target="_blank">X / Twitter</a>
+    <a href="https://instagram.com/OnlyFoolsPredictions" target="_blank">Instagram</a>
+    <a href="https://tiktok.com/@OnlyFoolsPredictions" target="_blank">TikTok</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://buymeacoffee.com" target="_blank">Buy Me a Coffee</a>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-tagline">Subbed Out 'Til Next Time!</div>
+  <p class="footer-disclaimer">Only Fools Predictions is an independent fan-made Premier League prediction league. This site is not affiliated with, endorsed by, or connected to the Premier League or any of its clubs. All football data used is publicly available factual information. No copyright infringement is intended.</p>
+  <hr class="footer-divider">
+  <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
+</footer>
+
+</body>
+</html>

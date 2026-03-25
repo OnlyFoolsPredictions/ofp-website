@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard — OFP Only Fools Predictions</title>
+<meta name="description" content="The full OFP predictions leaderboard. See where you rank this gameweek and over the full season.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1923; font-family: Arial, sans-serif; color: #fff; min-height: 100vh; }
+  a { text-decoration: none; color: inherit; }
+
+  nav { background: #1B2A4A; border-bottom: 2px solid #F5A800; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; flex-direction: column; padding: 10px 0; }
+  .nav-logo .ofp { color: #F5A800; font-size: 30px; font-weight: 900; letter-spacing: 7px; font-family: 'Arial Black', Arial, sans-serif; line-height: 1; }
+  .nav-logo .sub { color: #F5A800; font-size: 9px; letter-spacing: 3px; opacity: 0.75; font-weight: 700; margin-top: 2px; }
+  .nav-links { display: flex; }
+  .nav-links a { color: rgba(245,168,0,0.65); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 22px 16px; text-transform: uppercase; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; display: block; }
+  .nav-links a:hover, .nav-links a.active { color: #F5A800; border-bottom: 3px solid #F5A800; }
+  .nav-enter { background: #F5A800; color: #1B2A4A !important; border-radius: 6px; padding: 8px 16px !important; margin-left: 8px; align-self: center; border-bottom: none !important; }
+  .nav-enter:hover { background: #e09600 !important; border-bottom: none !important; }
+  @media (max-width: 720px) { nav { flex-direction: column; align-items: flex-start; padding: 12px 16px; } .nav-links { flex-wrap: wrap; } .nav-links a { padding: 10px 10px; font-size: 10px; } }
+
+  .page-header { background: #1B2A4A; padding: 28px 32px 24px; border-bottom: 1px solid rgba(245,168,0,0.2); }
+  .page-header h1 { color: #F5A800; font-size: 22px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 2px; margin-bottom: 6px; }
+  .page-header p { color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 1px; }
+
+  .main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+  .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .stats-bar { grid-template-columns: 1fr 1fr; } }
+  .stat-card { background: #1B2A4A; border-radius: 8px; padding: 14px 16px; text-align: center; }
+  .stat-label { color: rgba(245,168,0,0.55); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .stat-value { color: #F5A800; font-size: 22px; font-weight: 900; font-family: 'Arial Black', Arial, sans-serif; }
+  .stat-sub { color: rgba(255,255,255,0.4); font-size: 10px; margin-top: 3px; }
+
+  .tabs { display: flex; gap: 0; margin-bottom: 20px; border-bottom: 2px solid rgba(245,168,0,0.2); }
+  .tab { color: rgba(245,168,0,0.5); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 12px 24px; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color 0.2s; }
+  .tab:hover { color: #F5A800; }
+  .tab.active { color: #F5A800; border-bottom: 3px solid #F5A800; }
+
+  .lb-card { background: #1B2A4A; border-radius: 10px; overflow: hidden; }
+  .lb-card-header { background: rgba(245,168,0,0.1); padding: 12px 20px; border-bottom: 1px solid rgba(245,168,0,0.2); display: flex; align-items: center; justify-content: space-between; }
+  .lb-card-header h2 { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .lb-card-header span { color: rgba(245,168,0,0.45); font-size: 10px; }
+
+  .lb-table-header { display: grid; grid-template-columns: 48px 44px 1fr 80px 80px 70px 80px; gap: 4px; padding: 10px 20px; border-bottom: 1px solid rgba(245,168,0,0.15); }
+  .lb-table-header span { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(245,168,0,0.45); text-align: center; }
+  .lb-table-header .name-h { text-align: left; }
+
+  .lb-row { display: grid; grid-template-columns: 48px 44px 1fr 80px 80px 70px 80px; align-items: center; gap: 4px; padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row:hover { background: rgba(245,168,0,0.05); }
+  .lb-row.row-gold { background: rgba(245,168,0,0.18); }
+  .lb-row.row-gold:hover { background: rgba(245,168,0,0.24); }
+  .lb-row.row-top3 { background: rgba(245,168,0,0.08); }
+  .lb-row.row-last { background: rgba(220,50,50,0.08); }
+
+  .col-pos { font-size: 14px; font-weight: 700; color: rgba(245,168,0,0.7); text-align: center; }
+  .row-gold .col-pos { color: #F5A800; }
+  .col-move { text-align: center; font-size: 12px; }
+  .col-name { font-size: 14px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
+  .badge { font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 10px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
+  .badge-topdog { background: #F5A800; color: #1B2A4A; }
+  .badge-lowrider { background: rgba(220,50,50,0.25); color: #ff8080; }
+  .col-stat { font-size: 13px; color: rgba(255,255,255,0.7); text-align: center; }
+  .col-pts { font-size: 15px; font-weight: 700; color: #F5A800; text-align: center; }
+  .row-last .col-pts { color: #ff8080; }
+  .row-last .col-pos { color: #ff8080; }
+  .row-last .col-name { color: rgba(255,255,255,0.6); }
+  .up { color: #4cd964; }
+  .down { color: #ff5c5c; }
+  .same { color: rgba(255,255,255,0.2); }
+
+  .accuracy-bar { display: flex; align-items: center; gap: 10px; padding: 10px 20px; background: rgba(245,168,0,0.06); border-top: 1px solid rgba(245,168,0,0.15); }
+  .acc-label { font-size: 10px; color: rgba(245,168,0,0.5); letter-spacing: 1px; text-transform: uppercase; font-weight: 700; white-space: nowrap; }
+  .acc-track { flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+  .acc-fill { height: 100%; background: #F5A800; border-radius: 3px; }
+  .acc-pct { font-size: 11px; color: #F5A800; font-weight: 700; white-space: nowrap; }
+
+  .scoring-guide { background: #1B2A4A; border-radius: 10px; padding: 20px 24px; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .scoring-guide { grid-template-columns: 1fr; } }
+  .guide-title { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .guide-text { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.75; }
+
+  footer { background: #1B2A4A; border-top: 2px solid rgba(245,168,0,0.25); padding: 24px 32px 20px; text-align: center; margin-top: 32px; }
+  .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .footer-social a { color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-social a:hover { color: #F5A800; }
+  .footer-divider { border: none; border-top: 1px solid rgba(245,168,0,0.15); margin: 14px 0; }
+  .footer-tagline { color: #F5A800; font-size: 13px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 3px; margin-bottom: 12px; }
+  .footer-disclaimer { color: rgba(255,255,255,0.3); font-size: 10px; line-height: 1.7; max-width: 680px; margin: 0 auto 8px; }
+  .footer-copy { color: rgba(245,168,0,0.3); font-size: 10px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span class="ofp">OFP</span><span class="sub">Only Fools Predictions</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="leaderboard.html" class="active">Leaderboard</a>
+    <a href="table.html">PL Table</a>
+    <a href="results.html">Results</a>
+    <a href="formguide.html">Form Guide</a>
+    <a href="about.html">About</a>
+    <a href="enter.html" class="nav-enter">Enter Free</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>OFP Leaderboard</h1>
+  <p>Season One &mdash; 2026/27 &nbsp;|&nbsp; Gameweek 12 of 38</p>
+</div>
+
+<div class="main">
+
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-label">This Week's Top Dog</div>
+      <div class="stat-value" style="font-size:16px;">Dave M</div>
+      <div class="stat-sub">47 points &mdash; GW12</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">This Week's Low Rider</div>
+      <div class="stat-value" style="font-size:16px;color:#ff8080;">Gary F</div>
+      <div class="stat-sub">21 points &mdash; GW12</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Participants</div>
+      <div class="stat-value">10</div>
+      <div class="stat-sub">Season One</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Gameweek</div>
+      <div class="stat-value">12</div>
+      <div class="stat-sub">of 38 played</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active">This Gameweek</div>
+    <div class="tab">Season Total</div>
+  </div>
+
+  <div class="lb-card">
+    <div class="lb-card-header">
+      <h2>Gameweek 12 &mdash; Full Leaderboard</h2>
+      <span>Updated after final whistle</span>
+    </div>
+    <div class="lb-table-header">
+      <span>Pos</span><span>Move</span><span class="name-h">Player</span>
+      <span>Get In!</span><span>Bad Shout!</span><span>GW Pts</span><span>Total Pts</span>
+    </div>
+
+    <div class="lb-row row-gold">
+      <div class="col-pos">1</div><div class="col-move"><span class="up">&#9650;3</span></div>
+      <div class="col-name">Dave M <span class="badge badge-topdog">Top Dog</span></div>
+      <div class="col-stat">8</div><div class="col-stat">2</div><div class="col-stat">8</div><div class="col-pts">47</div>
+    </div>
+    <div class="lb-row row-top3">
+      <div class="col-pos">2</div><div class="col-move"><span class="up">&#9650;1</span></div>
+      <div class="col-name">Sarah K</div>
+      <div class="col-stat">7</div><div class="col-stat">3</div><div class="col-stat">7</div><div class="col-pts">44</div>
+    </div>
+    <div class="lb-row row-top3">
+      <div class="col-pos">3</div><div class="col-move"><span class="down">&#9660;1</span></div>
+      <div class="col-name">Phil T</div>
+      <div class="col-stat">7</div><div class="col-stat">3</div><div class="col-stat">7</div><div class="col-pts">41</div>
+    </div>
+    <div class="lb-row">
+      <div class="col-pos">4</div><div class="col-move"><span class="up">&#9650;2</span></div>
+      <div class="col-name">Chris W</div>
+      <div class="col-stat">6</div><div class="col-stat">4</div><div class="col-stat">6</div><div class="col-pts">39</div>
+    </div>
+    <div class="lb-row">
+      <div class="col-pos">5</div><div class="col-move"><span class="same">&mdash;</span></div>
+      <div class="col-name">Nadia R</div>
+      <div class="col-stat">6</div><div class="col-stat">4</div><div class="col-stat">6</div><div class="col-pts">37</div>
+    </div>
+    <div class="lb-row">
+      <div class="col-pos">6</div><div class="col-move"><span class="down">&#9660;2</span></div>
+      <div class="col-name">Lee B</div>
+      <div class="col-stat">5</div><div class="col-stat">5</div><div class="col-stat">5</div><div class="col-pts">35</div>
+    </div>
+    <div class="lb-row">
+      <div class="col-pos">7</div><div class="col-move"><span class="up">&#9650;1</span></div>
+      <div class="col-name">Joanne P</div>
+      <div class="col-stat">5</div><div class="col-stat">5</div><div class="col-stat">5</div><div class="col-pts">32</div>
+    </div>
+    <div class="lb-row">
+      <div class="col-pos">8</div><div class="col-move"><span class="down">&#9660;1</span></div>
+      <div class="col-name">Mark H</div>
+      <div class="col-stat">4</div><div class="col-stat">6</div><div class="col-stat">4</div><div class="col-pts">29</div>
+    </div>
+    <div class="lb-row">
+      <div class="col-pos">9</div><div class="col-move"><span class="same">&mdash;</span></div>
+      <div class="col-name">Tracey S</div>
+      <div class="col-stat">4</div><div class="col-stat">6</div><div class="col-stat">4</div><div class="col-pts">26</div>
+    </div>
+    <div class="lb-row row-last">
+      <div class="col-pos">10</div><div class="col-move"><span class="down">&#9660;3</span></div>
+      <div class="col-name">Gary F <span class="badge badge-lowrider">Low Rider</span></div>
+      <div class="col-stat">3</div><div class="col-stat">7</div><div class="col-stat">3</div><div class="col-pts">21</div>
+    </div>
+
+    <div class="accuracy-bar">
+      <span class="acc-label">Get In! Rate</span>
+      <div class="acc-track"><div class="acc-fill" style="width:55%;"></div></div>
+      <span class="acc-pct">55% correct this week</span>
+    </div>
+  </div>
+
+  <div class="scoring-guide">
+    <div>
+      <p class="guide-title">How Points Work</p>
+      <p class="guide-text">Predict the correct result (win, draw or loss) and earn <strong style="color:#F5A800;">1 point — Get In!</strong> Get it wrong and earn nothing — <strong style="color:rgba(255,100,100,0.8);">Bad Shout!</strong> Each gameweek has 10 Premier League fixtures, so a perfect week scores 10 points.</p>
+    </div>
+    <div>
+      <p class="guide-title">Top Dog &amp; Low Rider</p>
+      <p class="guide-text">The player with the most points at the end of each gameweek earns the title of <strong style="color:#F5A800;">This Week's Top Dog.</strong> The player with the fewest points gets the wooden spoon as <strong style="color:rgba(255,100,100,0.8);">This Week's Low Rider.</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-social">
+    <a href="https://youtube.com/@OnlyFoolsPredictions" target="_blank">YouTube</a>
+    <a href="https://twitter.com/OFPredictions" target="_blank">X / Twitter</a>
+    <a href="https://instagram.com/OnlyFoolsPredictions" target="_blank">Instagram</a>
+    <a href="https://tiktok.com/@OnlyFoolsPredictions" target="_blank">TikTok</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://buymeacoffee.com" target="_blank">Buy Me a Coffee</a>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-tagline">Subbed Out 'Til Next Time!</div>
+  <p class="footer-disclaimer">Only Fools Predictions is an independent fan-made Premier League prediction league. This site is not affiliated with, endorsed by, or connected to the Premier League or any of its clubs. All football data used is publicly available factual information. No copyright infringement is intended.</p>
+  <hr class="footer-divider">
+  <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OFP — Only Fools Predictions</title>
+<meta name="description" content="The free Premier League prediction league on YouTube. Submit your scores, climb the leaderboard, and prove you know your football.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1923; font-family: Arial, sans-serif; color: #fff; min-height: 100vh; }
+  a { text-decoration: none; color: inherit; }
+
+  nav { background: #1B2A4A; border-bottom: 2px solid #F5A800; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; flex-direction: column; padding: 10px 0; }
+  .nav-logo .ofp { color: #F5A800; font-size: 30px; font-weight: 900; letter-spacing: 7px; font-family: 'Arial Black', Arial, sans-serif; line-height: 1; }
+  .nav-logo .sub { color: #F5A800; font-size: 9px; letter-spacing: 3px; opacity: 0.75; font-weight: 700; margin-top: 2px; }
+  .nav-links { display: flex; gap: 0; }
+  .nav-links a { color: rgba(245,168,0,0.65); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 22px 16px; text-transform: uppercase; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; display: block; }
+  .nav-links a:hover, .nav-links a.active { color: #F5A800; border-bottom: 3px solid #F5A800; }
+  .nav-enter { background: #F5A800; color: #1B2A4A !important; border-radius: 6px; padding: 8px 16px !important; margin-left: 8px; align-self: center; border-bottom: none !important; }
+  .nav-enter:hover { background: #e09600 !important; border-bottom: none !important; }
+
+  .hero { background: #1B2A4A; padding: 36px 32px 30px; text-align: center; border-bottom: 1px solid rgba(245,168,0,0.2); }
+  .hero h1 { color: #F5A800; font-size: 26px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 2px; margin-bottom: 10px; }
+  .hero p { color: rgba(255,255,255,0.65); font-size: 14px; max-width: 560px; margin: 0 auto 20px; line-height: 1.7; }
+  .hero-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .tag { font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 20px; letter-spacing: 1px; border: 1px solid rgba(245,168,0,0.35); background: rgba(245,168,0,0.12); color: #F5A800; }
+  .tag.solid { background: #F5A800; color: #1B2A4A; border-color: #F5A800; }
+
+  .main { max-width: 1100px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  @media (max-width: 720px) {
+    .main { grid-template-columns: 1fr; }
+    nav { flex-direction: column; align-items: flex-start; padding: 12px 16px; }
+    .nav-links { flex-wrap: wrap; }
+    .nav-links a { padding: 10px 10px; font-size: 10px; }
+    .hero h1 { font-size: 18px; }
+    .how-it-works { grid-template-columns: 1fr 1fr !important; }
+  }
+
+  .card { background: #1B2A4A; border-radius: 10px; overflow: hidden; }
+  .card-header { background: rgba(245,168,0,0.1); padding: 11px 16px; border-bottom: 1px solid rgba(245,168,0,0.2); display: flex; align-items: center; justify-content: space-between; }
+  .card-header h2 { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .card-header .gw { color: rgba(245,168,0,0.45); font-size: 10px; letter-spacing: 1px; }
+  .card-body { padding: 14px 16px; }
+
+  .how-it-works { background: rgba(245,168,0,0.07); border: 1px solid rgba(245,168,0,0.2); border-radius: 10px; padding: 20px 24px; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .step { text-align: center; padding: 8px; }
+  .step-num { width: 32px; height: 32px; background: #F5A800; color: #1B2A4A; border-radius: 50%; font-size: 14px; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-family: 'Arial Black', Arial, sans-serif; }
+  .step h3 { color: #F5A800; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .step p { color: rgba(255,255,255,0.55); font-size: 11px; line-height: 1.6; }
+
+  .lb-row { display: grid; grid-template-columns: 28px 1fr 52px 70px; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 7px; margin-bottom: 5px; }
+  .lb-row.lb-gold { background: #F5A800; }
+  .lb-row.lb-second { background: rgba(245,168,0,0.15); }
+  .lb-row.lb-normal { background: rgba(255,255,255,0.05); }
+  .lb-row.lb-last { background: rgba(220,50,50,0.1); }
+  .lb-pos { font-size: 13px; font-weight: 700; text-align: center; color: #F5A800; }
+  .lb-gold .lb-pos { color: #1B2A4A; }
+  .lb-name { font-size: 13px; font-weight: 700; color: #fff; }
+  .lb-gold .lb-name { color: #1B2A4A; }
+  .lb-pts { font-size: 14px; font-weight: 700; color: #F5A800; text-align: right; }
+  .lb-gold .lb-pts { color: #1B2A4A; }
+  .lb-badge { font-size: 10px; font-weight: 700; text-align: center; }
+  .lb-gold .lb-badge { color: #1B2A4A; }
+  .lb-last .lb-badge { color: rgba(255,120,120,0.8); }
+  .lb-last .lb-pts { color: #ff8080; }
+  .lb-last .lb-pos { color: #ff8080; }
+
+  .pl-table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
+  .pl-table th { color: rgba(245,168,0,0.5); font-size: 9px; font-weight: 700; letter-spacing: 1px; padding: 0 4px 8px; text-align: center; }
+  .pl-table th.left { text-align: left; }
+  .pl-table td { padding: 6px 4px; text-align: center; color: rgba(255,255,255,0.8); }
+  .pl-table td.left { text-align: left; font-weight: 700; color: #fff; }
+  .pl-table td.pts { color: #F5A800; font-weight: 700; font-size: 13px; }
+  .pl-table td.pos { color: rgba(245,168,0,0.6); font-weight: 700; }
+  .pl-table tr.cl td { background: rgba(245,168,0,0.1); }
+  .pl-table tr.rel td { background: rgba(220,50,50,0.1); }
+  .pl-table tr.rel td.left { color: rgba(255,255,255,0.6); }
+  .pl-table tr.rel td.pts { color: #ff8080; }
+  .pl-legend { display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+  .pl-legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: rgba(255,255,255,0.45); }
+  .pl-dot { width: 9px; height: 9px; border-radius: 2px; }
+
+  .result-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); gap: 8px; }
+  .result-row:last-child { border-bottom: none; }
+  .result-team { font-size: 13px; font-weight: 700; flex: 1; color: rgba(255,255,255,0.85); }
+  .result-team.right { text-align: right; }
+  .result-score { background: rgba(245,168,0,0.12); color: #F5A800; font-weight: 700; font-size: 14px; padding: 4px 12px; border-radius: 5px; border: 1px solid rgba(245,168,0,0.3); min-width: 60px; text-align: center; white-space: nowrap; }
+
+  .about-text { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.75; margin-bottom: 16px; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn { font-size: 11px; font-weight: 700; padding: 8px 18px; border-radius: 7px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border: 1.5px solid #F5A800; color: #F5A800; background: transparent; transition: background 0.2s; display: inline-block; }
+  .btn:hover { background: rgba(245,168,0,0.1); }
+  .btn.solid { background: #F5A800; color: #1B2A4A; }
+  .btn.solid:hover { background: #e09600; }
+
+  .view-more { text-align: center; margin-top: 12px; }
+  .view-more a { color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid rgba(245,168,0,0.3); padding-bottom: 1px; transition: color 0.2s; }
+  .view-more a:hover { color: #F5A800; }
+
+  footer { background: #1B2A4A; border-top: 2px solid rgba(245,168,0,0.25); padding: 24px 32px 20px; text-align: center; margin-top: 24px; }
+  .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .footer-social a { color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-social a:hover { color: #F5A800; }
+  .footer-divider { border: none; border-top: 1px solid rgba(245,168,0,0.15); margin: 14px 0; }
+  .footer-tagline { color: #F5A800; font-size: 13px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 3px; margin-bottom: 12px; }
+  .footer-disclaimer { color: rgba(255,255,255,0.3); font-size: 10px; line-height: 1.7; max-width: 680px; margin: 0 auto 8px; }
+  .footer-copy { color: rgba(245,168,0,0.3); font-size: 10px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="ofp">OFP</span>
+    <span class="sub">Only Fools Predictions</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="table.html">PL Table</a>
+    <a href="results.html">Results</a>
+    <a href="formguide.html">Form Guide</a>
+    <a href="about.html">About</a>
+    <a href="enter.html" class="nav-enter">Enter Free</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Welcome to OFP &mdash; Only Fools Predictions</h1>
+  <p>The free Premier League prediction league on YouTube. Submit your scores each week, earn points for correct results, and compete on the leaderboard. Top scorer is crowned Top Dog. Bottom of the pile? That's our Low Rider.</p>
+  <div class="hero-tags">
+    <span class="tag solid">Season One &mdash; 2026/27</span>
+    <span class="tag">Gameweek 12</span>
+    <span class="tag">Free to Enter</span>
+    <span class="tag">Premier League</span>
+    <span class="tag">Every Week</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="how-it-works">
+    <div class="step"><div class="step-num">1</div><h3>Watch</h3><p>Subscribe to OFP on YouTube and watch each week's predictions video</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Predict</h3><p>Submit your score predictions each gameweek using our free entry form</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Score</h3><p>Earn points for correct results &mdash; Get In! for a hit, Bad Shout! for a miss</p></div>
+    <div class="step"><div class="step-num">4</div><h3>Climb</h3><p>Rise up the leaderboard. Can you be This Week's Top Dog and avoid the Low Rider slot?</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h2>This Week's Leaderboard</h2><span class="gw">GW12</span></div>
+    <div class="card-body">
+      <div class="lb-row lb-gold">
+        <div class="lb-pos">1</div><div class="lb-name">Dave M &#9733;</div><div class="lb-pts">47 pts</div><div class="lb-badge">Top Dog</div>
+      </div>
+      <div class="lb-row lb-second">
+        <div class="lb-pos">2</div><div class="lb-name">Sarah K</div><div class="lb-pts">44 pts</div><div class="lb-badge"></div>
+      </div>
+      <div class="lb-row lb-normal">
+        <div class="lb-pos">3</div><div class="lb-name">Phil T</div><div class="lb-pts">41 pts</div><div class="lb-badge"></div>
+      </div>
+      <div class="lb-row lb-normal">
+        <div class="lb-pos">4</div><div class="lb-name">Chris W</div><div class="lb-pts">39 pts</div><div class="lb-badge"></div>
+      </div>
+      <div class="lb-row lb-normal">
+        <div class="lb-pos">5</div><div class="lb-name">Nadia R</div><div class="lb-pts">37 pts</div><div class="lb-badge"></div>
+      </div>
+      <div class="lb-row lb-last">
+        <div class="lb-pos">10</div><div class="lb-name" style="color:rgba(255,255,255,0.55);">Gary F</div><div class="lb-pts">21 pts</div><div class="lb-badge">Low Rider</div>
+      </div>
+      <div class="view-more"><a href="leaderboard.html">View full leaderboard &rarr;</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h2>Premier League Table</h2><span class="gw">GW12</span></div>
+    <div class="card-body">
+      <table class="pl-table">
+        <thead><tr><th style="width:24px;"></th><th class="left">Club</th><th style="width:26px;">P</th><th style="width:26px;">W</th><th style="width:30px;">GD</th><th style="width:34px;">Pts</th></tr></thead>
+        <tbody>
+          <tr class="cl"><td class="pos">1</td><td class="left">Arsenal</td><td>12</td><td>9</td><td>+22</td><td class="pts">29</td></tr>
+          <tr class="cl"><td class="pos">2</td><td class="left">Liverpool</td><td>12</td><td>9</td><td>+19</td><td class="pts">28</td></tr>
+          <tr class="cl"><td class="pos">3</td><td class="left">Man City</td><td>12</td><td>8</td><td>+17</td><td class="pts">26</td></tr>
+          <tr class="cl"><td class="pos">4</td><td class="left">Chelsea</td><td>12</td><td>7</td><td>+14</td><td class="pts">24</td></tr>
+          <tr><td class="pos">5</td><td class="left">Tottenham</td><td>12</td><td>7</td><td>+9</td><td class="pts">23</td></tr>
+          <tr><td class="pos">6</td><td class="left">Aston Villa</td><td>12</td><td>6</td><td>+7</td><td class="pts">21</td></tr>
+          <tr><td class="pos">7</td><td class="left">Newcastle</td><td>12</td><td>6</td><td>+5</td><td class="pts">20</td></tr>
+          <tr class="rel"><td class="pos">18</td><td class="left">Leicester</td><td>12</td><td>2</td><td>-12</td><td class="pts">9</td></tr>
+          <tr class="rel"><td class="pos">19</td><td class="left">Ipswich</td><td>12</td><td>2</td><td>-15</td><td class="pts">8</td></tr>
+          <tr class="rel"><td class="pos">20</td><td class="left">Southampton</td><td>12</td><td>1</td><td>-22</td><td class="pts">5</td></tr>
+        </tbody>
+      </table>
+      <div class="pl-legend">
+        <div class="pl-legend-item"><div class="pl-dot" style="background:rgba(245,168,0,0.45);"></div>Champions League</div>
+        <div class="pl-legend-item"><div class="pl-dot" style="background:rgba(220,50,50,0.4);"></div>Relegation Zone</div>
+      </div>
+      <div class="view-more" style="margin-top:14px;"><a href="table.html">Full table &rarr;</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h2>Latest Results</h2><span class="gw">GW12</span></div>
+    <div class="card-body">
+      <div class="result-row"><span class="result-team">Arsenal</span><span class="result-score">3 &ndash; 1</span><span class="result-team right">Chelsea</span></div>
+      <div class="result-row"><span class="result-team">Liverpool</span><span class="result-score">2 &ndash; 2</span><span class="result-team right">Man City</span></div>
+      <div class="result-row"><span class="result-team">Tottenham</span><span class="result-score">1 &ndash; 0</span><span class="result-team right">Newcastle</span></div>
+      <div class="result-row"><span class="result-team">Aston Villa</span><span class="result-score">2 &ndash; 1</span><span class="result-team right">West Ham</span></div>
+      <div class="result-row"><span class="result-team">Man United</span><span class="result-score">0 &ndash; 3</span><span class="result-team right">Brighton</span></div>
+      <div class="view-more"><a href="results.html">All results &rarr;</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h2>About OFP</h2></div>
+    <div class="card-body">
+      <p class="about-text">Only Fools Predictions is a free Premier League prediction league based on YouTube. Every gameweek you submit your score predictions, we track your results, and the leaderboard updates automatically. Think you know football better than everyone else? Prove it.</p>
+      <p class="about-text">Top of the weekly leaderboard earns the title of <strong style="color:#F5A800;">This Week's Top Dog</strong>. Bottom of the table gets the wooden spoon as <strong style="color:rgba(255,100,100,0.9);">This Week's Low Rider</strong>.</p>
+      <div class="btn-row">
+        <a href="enter.html" class="btn solid">Enter Free</a>
+        <a href="https://youtube.com/@OnlyFoolsPredictions" class="btn" target="_blank">Watch on YouTube</a>
+        <a href="https://buymeacoffee.com" class="btn" target="_blank">Support Us</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-social">
+    <a href="https://youtube.com/@OnlyFoolsPredictions" target="_blank">YouTube</a>
+    <a href="https://twitter.com/OFPredictions" target="_blank">X / Twitter</a>
+    <a href="https://instagram.com/OnlyFoolsPredictions" target="_blank">Instagram</a>
+    <a href="https://tiktok.com/@OnlyFoolsPredictions" target="_blank">TikTok</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://buymeacoffee.com" target="_blank">Buy Me a Coffee</a>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-tagline">Subbed Out 'Til Next Time!</div>
+  <p class="footer-disclaimer">Only Fools Predictions is an independent fan-made Premier League prediction league. This site is not affiliated with, endorsed by, or connected to the Premier League or any of its clubs. All football data used is publicly available factual information. No copyright infringement is intended.</p>
+  <hr class="footer-divider">
+  <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
+</footer>
+
+</body>
+</html>

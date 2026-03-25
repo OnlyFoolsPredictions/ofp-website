@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — OFP Only Fools Predictions</title>
+<meta name="description" content="About OFP — Only Fools Predictions. The free Premier League prediction league on YouTube. Learn how it works, how to enter, and how points are scored.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1923; font-family: Arial, sans-serif; color: #fff; min-height: 100vh; }
+  a { text-decoration: none; color: inherit; }
+
+  nav { background: #1B2A4A; border-bottom: 2px solid #F5A800; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; flex-direction: column; padding: 10px 0; }
+  .nav-logo .ofp { color: #F5A800; font-size: 30px; font-weight: 900; letter-spacing: 7px; font-family: 'Arial Black', Arial, sans-serif; line-height: 1; }
+  .nav-logo .sub { color: #F5A800; font-size: 9px; letter-spacing: 3px; opacity: 0.75; font-weight: 700; margin-top: 2px; }
+  .nav-links { display: flex; }
+  .nav-links a { color: rgba(245,168,0,0.65); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 22px 16px; text-transform: uppercase; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; display: block; }
+  .nav-links a:hover, .nav-links a.active { color: #F5A800; border-bottom: 3px solid #F5A800; }
+  .nav-enter { background: #F5A800; color: #1B2A4A !important; border-radius: 6px; padding: 8px 16px !important; margin-left: 8px; align-self: center; border-bottom: none !important; }
+  .nav-enter:hover { background: #e09600 !important; border-bottom: none !important; }
+  @media (max-width: 720px) { nav { flex-direction: column; align-items: flex-start; padding: 12px 16px; } .nav-links { flex-wrap: wrap; } .nav-links a { padding: 10px 10px; font-size: 10px; } }
+
+  .page-header { background: #1B2A4A; padding: 28px 32px 24px; border-bottom: 1px solid rgba(245,168,0,0.2); }
+  .page-header h1 { color: #F5A800; font-size: 22px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 2px; margin-bottom: 6px; }
+  .page-header p { color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 1px; }
+
+  .main { max-width: 800px; margin: 0 auto; padding: 24px; }
+
+  .section-card { background: #1B2A4A; border-radius: 10px; overflow: hidden; margin-bottom: 18px; }
+  .section-card-header { background: rgba(245,168,0,0.1); padding: 12px 20px; border-bottom: 1px solid rgba(245,168,0,0.2); }
+  .section-card-header h2 { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .section-card-body { padding: 20px 22px; }
+
+  .body-text { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.8; margin-bottom: 14px; }
+  .body-text:last-child { margin-bottom: 0; }
+  .body-text strong { color: #F5A800; }
+  .body-text a { color: #F5A800; border-bottom: 1px solid rgba(245,168,0,0.3); }
+
+  /* scoring table */
+  .score-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .score-table th { color: rgba(245,168,0,0.55); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 0 12px 10px; text-align: left; border-bottom: 1px solid rgba(245,168,0,0.15); }
+  .score-table td { padding: 9px 12px; font-size: 13px; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+  .score-table tr:last-child td { border-bottom: none; }
+  .score-table td.outcome { font-weight: 700; color: #fff; }
+  .score-table td.pts { color: #F5A800; font-weight: 700; font-size: 15px; }
+  .badge-correct { background: rgba(76,217,100,0.15); color: #4cd964; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 5px; letter-spacing: 1px; }
+  .badge-wrong { background: rgba(255,92,92,0.15); color: #ff5c5c; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 5px; letter-spacing: 1px; }
+
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid rgba(245,168,0,0.1); padding: 14px 0; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-q { color: #F5A800; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .faq-a { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.7; }
+  .faq-a a { color: #F5A800; }
+
+  /* social links */
+  .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 500px) { .social-grid { grid-template-columns: 1fr 1fr; } }
+  .social-btn { background: rgba(245,168,0,0.08); border: 1px solid rgba(245,168,0,0.2); border-radius: 8px; padding: 14px 12px; text-align: center; transition: background 0.2s; }
+  .social-btn:hover { background: rgba(245,168,0,0.14); }
+  .social-btn .s-name { color: #F5A800; font-size: 12px; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 3px; }
+  .social-btn .s-handle { color: rgba(255,255,255,0.4); font-size: 10px; }
+
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .btn { font-size: 12px; font-weight: 700; padding: 10px 22px; border-radius: 7px; letter-spacing: 1px; text-transform: uppercase; border: 1.5px solid #F5A800; color: #F5A800; background: transparent; transition: background 0.2s; display: inline-block; cursor: pointer; }
+  .btn:hover { background: rgba(245,168,0,0.1); }
+  .btn.solid { background: #F5A800; color: #1B2A4A; }
+  .btn.solid:hover { background: #e09600; }
+
+  footer { background: #1B2A4A; border-top: 2px solid rgba(245,168,0,0.25); padding: 24px 32px 20px; text-align: center; margin-top: 32px; }
+  .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .footer-social a { color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-social a:hover { color: #F5A800; }
+  .footer-divider { border: none; border-top: 1px solid rgba(245,168,0,0.15); margin: 14px 0; }
+  .footer-tagline { color: #F5A800; font-size: 13px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 3px; margin-bottom: 12px; }
+  .footer-disclaimer { color: rgba(255,255,255,0.3); font-size: 10px; line-height: 1.7; max-width: 680px; margin: 0 auto 8px; }
+  .footer-copy { color: rgba(245,168,0,0.3); font-size: 10px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span class="ofp">OFP</span><span class="sub">Only Fools Predictions</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="table.html">PL Table</a>
+    <a href="results.html">Results</a>
+    <a href="formguide.html">Form Guide</a>
+    <a href="about.html" class="active">About</a>
+    <a href="enter.html" class="nav-enter">Enter Free</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>About OFP</h1>
+  <p>Only Fools Predictions &mdash; The free Premier League prediction league on YouTube</p>
+</div>
+
+<div class="main">
+
+  <!-- WHAT IS OFP -->
+  <div class="section-card">
+    <div class="section-card-header"><h2>What is OFP?</h2></div>
+    <div class="section-card-body">
+      <p class="body-text"><strong>Only Fools Predictions (OFP)</strong> is a free Premier League prediction league that runs on YouTube. Every gameweek, we publish a predictions video on our YouTube channel, and viewers compete by submitting their own score predictions via a free entry form.</p>
+      <p class="body-text">Results are tracked, points are awarded for correct results, and the leaderboard updates each week. At the end of each gameweek, the top scorer earns the title of <strong>Top Dog</strong> and the bottom scorer gets the wooden spoon as <strong>Low Rider</strong>.</p>
+      <p class="body-text">It's completely free to enter. No registration, no subscription, no catches. Just Premier League football and friendly competition.</p>
+      <div class="cta-row">
+        <a href="enter.html" class="btn solid">Enter Free This Week</a>
+        <a href="https://youtube.com/@OnlyFoolsPredictions" class="btn" target="_blank">Subscribe on YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW POINTS WORK -->
+  <div class="section-card">
+    <div class="section-card-header"><h2>How Points Work</h2></div>
+    <div class="section-card-body">
+      <p class="body-text" style="margin-bottom:16px;">Predict the correct match result and earn a point. That's it. No score prediction, just the result — home win, away win, or draw.</p>
+      <table class="score-table">
+        <thead><tr><th>Outcome</th><th>Result</th><th>Label</th><th>Points</th></tr></thead>
+        <tbody>
+          <tr><td class="outcome">Correct result</td><td>You predicted the right outcome</td><td><span class="badge-correct">Get In!</span></td><td class="pts">+1</td></tr>
+          <tr><td class="outcome">Wrong result</td><td>Your prediction was incorrect</td><td><span class="badge-wrong">Bad Shout!</span></td><td class="pts">0</td></tr>
+          <tr><td class="outcome">Perfect week</td><td>All 10 fixtures correct</td><td>&mdash;</td><td class="pts">10</td></tr>
+        </tbody>
+      </table>
+      <p class="body-text" style="margin-top:16px;">Points accumulate over the season. Each gameweek also has its own standalone leaderboard so you can see who had the best week, separate from the overall season standings.</p>
+    </div>
+  </div>
+
+  <!-- TOP DOG & LOW RIDER -->
+  <div class="section-card">
+    <div class="section-card-header"><h2>Top Dog &amp; Low Rider</h2></div>
+    <div class="section-card-body">
+      <p class="body-text">Each gameweek, the player with the highest points total earns the title of <strong>This Week's Top Dog</strong> — the gameweek winner, top of the pile.</p>
+      <p class="body-text">The player with the fewest correct predictions that week gets the wooden spoon as <strong>This Week's Low Rider</strong>. Nobody wants that one. Both titles reset every gameweek so anyone can be Top Dog or Low Rider at any time.</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-card">
+    <div class="section-card-header"><h2>FAQ</h2></div>
+    <div class="section-card-body">
+      <div class="faq-item">
+        <div class="faq-q">Is it really free?</div>
+        <div class="faq-a">Yes, completely free. No account needed, no subscription. Just subscribe to our YouTube channel and submit your predictions via the weekly Google Form.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When does the entry form open each week?</div>
+        <div class="faq-a">The form goes live when the predictions video is published — usually Thursday or Friday. The deadline is always before the first kick-off of the gameweek.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I have to predict score lines or just the result?</div>
+        <div class="faq-a">Just the result — home win, away win or draw. One point for each correct result. Simple.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I know what gameweek is open for predictions?</div>
+        <div class="faq-a">Check the <a href="enter.html">Enter Free</a> page — it always shows the current open gameweek and fixtures. You can also watch the latest video on our <a href="https://youtube.com/@OnlyFoolsPredictions" target="_blank">YouTube channel</a>.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens at the end of the season?</div>
+        <div class="faq-a">The player with the most total points at the end of all 38 gameweeks wins Season One. We will announce prizes and end-of-season plans as the channel grows.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will you add other leagues?</div>
+        <div class="faq-a">Season One is Premier League only. From Season Two we plan to add the Championship. Midweek fixtures may be covered separately under the EDP — Early Doors Predictions — format.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How can I support OFP?</div>
+        <div class="faq-a">Subscribe to the YouTube channel, share the videos, and if you want to support us financially you can <a href="https://buymeacoffee.com" target="_blank">buy us a coffee</a>. Every bit helps keep the channel going.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIND US -->
+  <div class="section-card">
+    <div class="section-card-header"><h2>Find Us Online</h2></div>
+    <div class="section-card-body">
+      <div class="social-grid">
+        <a href="https://youtube.com/@OnlyFoolsPredictions" target="_blank" class="social-btn"><span class="s-name">YouTube</span><span class="s-handle">@OnlyFoolsPredictions</span></a>
+        <a href="https://twitter.com/OFPredictions" target="_blank" class="social-btn"><span class="s-name">X / Twitter</span><span class="s-handle">@OFPredictions</span></a>
+        <a href="https://instagram.com/OnlyFoolsPredictions" target="_blank" class="social-btn"><span class="s-name">Instagram</span><span class="s-handle">@OnlyFoolsPredictions</span></a>
+        <a href="https://tiktok.com/@OnlyFoolsPredictions" target="_blank" class="social-btn"><span class="s-name">TikTok</span><span class="s-handle">@OnlyFoolsPredictions</span></a>
+        <a href="https://facebook.com" target="_blank" class="social-btn"><span class="s-name">Facebook</span><span class="s-handle">Only Fools Predictions</span></a>
+        <a href="https://buymeacoffee.com" target="_blank" class="social-btn"><span class="s-name">Buy Me a Coffee</span><span class="s-handle">Support OFP</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-social">
+    <a href="https://youtube.com/@OnlyFoolsPredictions" target="_blank">YouTube</a>
+    <a href="https://twitter.com/OFPredictions" target="_blank">X / Twitter</a>
+    <a href="https://instagram.com/OnlyFoolsPredictions" target="_blank">Instagram</a>
+    <a href="https://tiktok.com/@OnlyFoolsPredictions" target="_blank">TikTok</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://buymeacoffee.com" target="_blank">Buy Me a Coffee</a>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-tagline">Subbed Out 'Til Next Time!</div>
+  <p class="footer-disclaimer">Only Fools Predictions is an independent fan-made Premier League prediction league. This site is not affiliated with, endorsed by, or connected to the Premier League or any of its clubs. All football data used is publicly available factual information. No copyright infringement is intended.</p>
+  <hr class="footer-divider">
+  <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
+</footer>
+
+</body>
+</html>

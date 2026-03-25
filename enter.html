@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enter Free — OFP Only Fools Predictions</title>
+<meta name="description" content="Enter the OFP Premier League prediction league for free. Submit your score predictions each gameweek and climb the leaderboard.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1923; font-family: Arial, sans-serif; color: #fff; min-height: 100vh; }
+  a { text-decoration: none; color: inherit; }
+
+  nav { background: #1B2A4A; border-bottom: 2px solid #F5A800; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; flex-direction: column; padding: 10px 0; }
+  .nav-logo .ofp { color: #F5A800; font-size: 30px; font-weight: 900; letter-spacing: 7px; font-family: 'Arial Black', Arial, sans-serif; line-height: 1; }
+  .nav-logo .sub { color: #F5A800; font-size: 9px; letter-spacing: 3px; opacity: 0.75; font-weight: 700; margin-top: 2px; }
+  .nav-links { display: flex; }
+  .nav-links a { color: rgba(245,168,0,0.65); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 22px 16px; text-transform: uppercase; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; display: block; }
+  .nav-links a:hover, .nav-links a.active { color: #F5A800; border-bottom: 3px solid #F5A800; }
+  .nav-enter { background: #F5A800; color: #1B2A4A !important; border-radius: 6px; padding: 8px 16px !important; margin-left: 8px; align-self: center; border-bottom: none !important; }
+  .nav-enter:hover { background: #e09600 !important; border-bottom: none !important; }
+  @media (max-width: 720px) { nav { flex-direction: column; align-items: flex-start; padding: 12px 16px; } .nav-links { flex-wrap: wrap; } .nav-links a { padding: 10px 10px; font-size: 10px; } }
+
+  .page-header { background: #1B2A4A; padding: 28px 32px 24px; border-bottom: 1px solid rgba(245,168,0,0.2); }
+  .page-header h1 { color: #F5A800; font-size: 22px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 2px; margin-bottom: 6px; }
+  .page-header p { color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 1px; }
+
+  .main { max-width: 800px; margin: 0 auto; padding: 24px; }
+
+  /* steps */
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
+  @media (max-width: 600px) { .steps-grid { grid-template-columns: 1fr; } }
+  .step-card { background: #1B2A4A; border-radius: 10px; padding: 18px 16px; text-align: center; }
+  .step-num { width: 36px; height: 36px; background: #F5A800; color: #1B2A4A; border-radius: 50%; font-size: 16px; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-family: 'Arial Black', Arial, sans-serif; }
+  .step-title { color: #F5A800; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .step-desc { color: rgba(255,255,255,0.55); font-size: 12px; line-height: 1.6; }
+
+  /* main entry card */
+  .entry-card { background: #1B2A4A; border-radius: 10px; overflow: hidden; }
+  .entry-card-header { background: rgba(245,168,0,0.1); padding: 14px 20px; border-bottom: 1px solid rgba(245,168,0,0.2); }
+  .entry-card-header h2 { color: #F5A800; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+  .entry-card-header p { color: rgba(255,255,255,0.45); font-size: 11px; letter-spacing: 1px; }
+  .entry-card-body { padding: 24px 20px; }
+
+  /* deadline */
+  .deadline-bar { background: rgba(245,168,0,0.1); border: 1px solid rgba(245,168,0,0.3); border-radius: 7px; padding: 10px 16px; margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
+  .deadline-icon { font-size: 18px; }
+  .deadline-text { font-size: 12px; color: rgba(255,255,255,0.7); }
+  .deadline-text strong { color: #F5A800; }
+
+  /* fixtures to predict */
+  .fixtures-label { color: #F5A800; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .fixture-item { display: grid; grid-template-columns: 1fr 80px 1fr; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .fixture-item:last-of-type { border-bottom: none; }
+  .fix-home { font-size: 13px; font-weight: 700; color: #fff; text-align: right; }
+  .fix-away { font-size: 13px; font-weight: 700; color: #fff; text-align: left; }
+  .fix-vs { background: rgba(245,168,0,0.1); border: 1px solid rgba(245,168,0,0.25); border-radius: 5px; padding: 5px 0; text-align: center; color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+
+  .form-divider { border: none; border-top: 1px solid rgba(245,168,0,0.15); margin: 22px 0; }
+
+  /* google form embed note */
+  .form-embed-note { background: rgba(245,168,0,0.07); border: 1px solid rgba(245,168,0,0.2); border-radius: 8px; padding: 20px; text-align: center; }
+  .form-embed-note p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
+  .form-embed-note p strong { color: #F5A800; }
+  .btn-group { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btn { font-size: 12px; font-weight: 700; padding: 10px 22px; border-radius: 7px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border: 1.5px solid #F5A800; color: #F5A800; background: transparent; transition: background 0.2s; display: inline-block; }
+  .btn:hover { background: rgba(245,168,0,0.1); }
+  .btn.solid { background: #F5A800; color: #1B2A4A; border-color: #F5A800; }
+  .btn.solid:hover { background: #e09600; }
+
+  /* scoring reminder */
+  .scoring-reminder { background: #1B2A4A; border-radius: 10px; padding: 18px 20px; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 500px) { .scoring-reminder { grid-template-columns: 1fr; } }
+  .sr-item { display: flex; align-items: flex-start; gap: 12px; }
+  .sr-icon { font-size: 22px; flex-shrink: 0; }
+  .sr-title { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+  .sr-desc { color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.5; }
+
+  footer { background: #1B2A4A; border-top: 2px solid rgba(245,168,0,0.25); padding: 24px 32px 20px; text-align: center; margin-top: 32px; }
+  .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .footer-social a { color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-social a:hover { color: #F5A800; }
+  .footer-divider { border: none; border-top: 1px solid rgba(245,168,0,0.15); margin: 14px 0; }
+  .footer-tagline { color: #F5A800; font-size: 13px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 3px; margin-bottom: 12px; }
+  .footer-disclaimer { color: rgba(255,255,255,0.3); font-size: 10px; line-height: 1.7; max-width: 680px; margin: 0 auto 8px; }
+  .footer-copy { color: rgba(245,168,0,0.3); font-size: 10px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span class="ofp">OFP</span><span class="sub">Only Fools Predictions</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="table.html">PL Table</a>
+    <a href="results.html">Results</a>
+    <a href="formguide.html">Form Guide</a>
+    <a href="about.html">About</a>
+    <a href="enter.html" class="nav-enter active">Enter Free</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Enter Free</h1>
+  <p>Season One &mdash; 2026/27 &nbsp;|&nbsp; Submit Your Gameweek 13 Predictions</p>
+</div>
+
+<div class="main">
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-title">Watch</div>
+      <div class="step-desc">Subscribe on YouTube and watch the weekly OFP predictions video before submitting</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-title">Submit</div>
+      <div class="step-desc">Fill in the Google Form below with your score predictions before the deadline</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-title">Check Back</div>
+      <div class="step-desc">After the gameweek ends, check the leaderboard to see your score and ranking</div>
+    </div>
+  </div>
+
+  <div class="entry-card">
+    <div class="entry-card-header">
+      <h2>Gameweek 13 &mdash; Predictions Form</h2>
+      <p>Season One &mdash; 2026/27 Premier League</p>
+    </div>
+    <div class="entry-card-body">
+
+      <div class="deadline-bar">
+        <div class="deadline-icon">&#9201;</div>
+        <div class="deadline-text"><strong>Deadline:</strong> Friday 21 November 2026 at 19:00 &mdash; before the first kick-off</div>
+      </div>
+
+      <p class="fixtures-label">Gameweek 13 Fixtures</p>
+
+      <div class="fixture-item"><div class="fix-home">Chelsea</div><div class="fix-vs">vs</div><div class="fix-away">Arsenal</div></div>
+      <div class="fixture-item"><div class="fix-home">Man City</div><div class="fix-vs">vs</div><div class="fix-away">Liverpool</div></div>
+      <div class="fixture-item"><div class="fix-home">Newcastle</div><div class="fix-vs">vs</div><div class="fix-away">Tottenham</div></div>
+      <div class="fixture-item"><div class="fix-home">West Ham</div><div class="fix-vs">vs</div><div class="fix-away">Aston Villa</div></div>
+      <div class="fixture-item"><div class="fix-home">Brighton</div><div class="fix-vs">vs</div><div class="fix-away">Man United</div></div>
+      <div class="fixture-item"><div class="fix-home">Fulham</div><div class="fix-vs">vs</div><div class="fix-away">Everton</div></div>
+      <div class="fixture-item"><div class="fix-home">Brentford</div><div class="fix-vs">vs</div><div class="fix-away">Wolves</div></div>
+      <div class="fixture-item"><div class="fix-home">Nottm Forest</div><div class="fix-vs">vs</div><div class="fix-away">Crystal Palace</div></div>
+      <div class="fixture-item"><div class="fix-home">Leicester</div><div class="fix-vs">vs</div><div class="fix-away">Bournemouth</div></div>
+      <div class="fixture-item"><div class="fix-home">Ipswich</div><div class="fix-vs">vs</div><div class="fix-away">Southampton</div></div>
+
+      <hr class="form-divider">
+
+      <div class="form-embed-note">
+        <p>Ready to predict? Click the button below to open the <strong>Gameweek 13 OFP Prediction Form</strong> on Google Forms. It takes less than 2 minutes to fill in. You can also use the Form Guide to check team form before you predict.</p>
+        <div class="btn-group">
+          <a href="https://forms.google.com" target="_blank" class="btn solid">Open Predictions Form &rarr;</a>
+          <a href="formguide.html" class="btn">Check Form Guide</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="scoring-reminder">
+    <div class="sr-item">
+      <div class="sr-icon">&#9989;</div>
+      <div>
+        <div class="sr-title">Get In!</div>
+        <div class="sr-desc">Predict the correct result (home win, away win or draw) and earn 1 point.</div>
+      </div>
+    </div>
+    <div class="sr-item">
+      <div class="sr-icon">&#10060;</div>
+      <div>
+        <div class="sr-title">Bad Shout!</div>
+        <div class="sr-desc">Wrong result, no points. A perfect gameweek of 10 correct predictions earns 10 points.</div>
+      </div>
+    </div>
+    <div class="sr-item">
+      <div class="sr-icon">&#127942;</div>
+      <div>
+        <div class="sr-title">Top Dog</div>
+        <div class="sr-desc">Most points this gameweek earns you the Top Dog title on the leaderboard.</div>
+      </div>
+    </div>
+    <div class="sr-item">
+      <div class="sr-icon">&#128517;</div>
+      <div>
+        <div class="sr-title">Low Rider</div>
+        <div class="sr-desc">Fewest points this gameweek earns you the wooden spoon as Low Rider.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-social">
+    <a href="https://youtube.com/@OnlyFoolsPredictions" target="_blank">YouTube</a>
+    <a href="https://twitter.com/OFPredictions" target="_blank">X / Twitter</a>
+    <a href="https://instagram.com/OnlyFoolsPredictions" target="_blank">Instagram</a>
+    <a href="https://tiktok.com/@OnlyFoolsPredictions" target="_blank">TikTok</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://buymeacoffee.com" target="_blank">Buy Me a Coffee</a>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-tagline">Subbed Out 'Til Next Time!</div>
+  <p class="footer-disclaimer">Only Fools Predictions is an independent fan-made Premier League prediction league. This site is not affiliated with, endorsed by, or connected to the Premier League or any of its clubs. All football data used is publicly available factual information. No copyright infringement is intended.</p>
+  <hr class="footer-divider">
+  <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
+</footer>
+
+</body>
+</html>
