@@ -1,106 +1,226 @@
 {
-  "updated": "26/03/2026 20:03",
+  "updated": "26/03/2026 20:15",
   "gameweek": 1,
   "teams": [
     {
       "name": "Liverpool",
       "points": 84,
-      "form": []
+      "form": [
+        "W",
+        "L",
+        "D",
+        "L",
+        "D"
+      ]
     },
     {
       "name": "Arsenal",
       "points": 74,
-      "form": []
+      "form": [
+        "D",
+        "L",
+        "D",
+        "W",
+        "W"
+      ]
     },
     {
       "name": "Manchester City",
       "points": 71,
-      "form": []
+      "form": [
+        "W",
+        "W",
+        "D",
+        "W",
+        "W"
+      ]
     },
     {
       "name": "Chelsea",
       "points": 69,
-      "form": []
+      "form": [
+        "W",
+        "W",
+        "L",
+        "W",
+        "W"
+      ]
     },
     {
       "name": "Newcastle",
       "points": 66,
-      "form": []
+      "form": [
+        "W",
+        "D",
+        "W",
+        "L",
+        "L"
+      ]
     },
     {
       "name": "Aston Villa",
       "points": 66,
-      "form": []
+      "form": [
+        "L",
+        "W",
+        "W",
+        "W",
+        "L"
+      ]
     },
     {
       "name": "Nottingham Forest",
       "points": 65,
-      "form": []
+      "form": [
+        "L",
+        "D",
+        "D",
+        "W",
+        "L"
+      ]
     },
     {
       "name": "Brighton",
       "points": 61,
-      "form": []
+      "form": [
+        "W",
+        "D",
+        "W",
+        "W",
+        "W"
+      ]
     },
     {
       "name": "Bournemouth",
       "points": 56,
-      "form": []
+      "form": [
+        "D",
+        "W",
+        "L",
+        "L",
+        "W"
+      ]
     },
     {
       "name": "Brentford",
       "points": 56,
-      "form": []
+      "form": [
+        "W",
+        "W",
+        "W",
+        "L",
+        "D"
+      ]
     },
     {
       "name": "Fulham",
       "points": 54,
-      "form": []
+      "form": [
+        "W",
+        "L",
+        "L",
+        "W",
+        "L"
+      ]
     },
     {
       "name": "Crystal Palace",
       "points": 53,
-      "form": []
+      "form": [
+        "D",
+        "D",
+        "W",
+        "W",
+        "D"
+      ]
     },
     {
       "name": "Everton",
       "points": 48,
-      "form": []
+      "form": [
+        "L",
+        "D",
+        "W",
+        "W",
+        "W"
+      ]
     },
     {
       "name": "West Ham",
       "points": 43,
-      "form": []
+      "form": [
+        "L",
+        "D",
+        "W",
+        "L",
+        "W"
+      ]
     },
     {
       "name": "Manchester United",
       "points": 42,
-      "form": []
+      "form": [
+        "D",
+        "L",
+        "L",
+        "L",
+        "W"
+      ]
     },
     {
       "name": "Wolves",
       "points": 42,
-      "form": []
+      "form": [
+        "W",
+        "L",
+        "L",
+        "L",
+        "D"
+      ]
     },
     {
       "name": "Tottenham",
       "points": 38,
-      "form": []
+      "form": [
+        "L",
+        "D",
+        "L",
+        "L",
+        "L"
+      ]
     },
     {
       "name": "Leicester",
       "points": 25,
-      "form": []
+      "form": [
+        "L",
+        "W",
+        "D",
+        "W",
+        "L"
+      ]
     },
     {
       "name": "Ipswich",
       "points": 22,
-      "form": []
+      "form": [
+        "L",
+        "D",
+        "L",
+        "L",
+        "L"
+      ]
     },
     {
       "name": "Southampton",
       "points": 12,
-      "form": []
+      "form": [
+        "L",
+        "L",
+        "D",
+        "L",
+        "L"
+      ]
     }
   ]
 }
