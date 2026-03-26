@@ -1,5 +1,13 @@
 {
-  "updated": "never",
-  "gameweek": 0,
-  "standings": []
+  "updated": "26/03/2026 10:00",
+  "gameweek": 1,
+  "standings": [
+    {
+      "username": "Test Player 3",
+      "gwPoints": 4,
+      "totalPoints": 4,
+      "move": 0,
+      "rank": 1
+    }
+  ]
 }
