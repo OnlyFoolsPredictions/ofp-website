@@ -89,7 +89,7 @@
 
 <div class="page-header">
   <h1>Form Guide</h1>
-  <p>Season One &mdash; 2026/27 &nbsp;|&nbsp; Last 5 Results Per Club &mdash; Gameweek 12</p>
+ <p>Season One &mdash; 2026/27 &nbsp;|&nbsp; Last 5 Results Per Club &mdash; <span id="fg-gw-header">Loading...</span></p>
 </div>
 
 <div class="main">
@@ -100,33 +100,16 @@
 
   <div class="form-card">
     <div class="form-card-header">
-      <h2>Last 5 Results &mdash; All Clubs</h2>
-      <span>After Gameweek 12</span>
+    <h2>Last 5 Results &mdash; All Clubs</h2>
+      <span id="fg-updated">Loading...</span>
     </div>
-    <div class="form-head">
+  <div class="form-head">
       <span></span><span class="h-club">Club</span><span>Pos</span><span>Last 5</span><span>Pts</span>
     </div>
 
-    <div class="form-row"><div class="f-pos">1</div><div class="f-club">Arsenal</div><div class="f-pts">29</div><div class="form-dots"><div class="fd fd-w">W</div><div class="fd fd-w">W</div><div class="fd fd-d">D</div><div class="fd fd-w">W</div><div class="fd fd-w">W</div></div><div class="f-pts-last5">13</div></div>
-    <div class="form-row"><div class="f-pos">2</div><div class="f-club">Liverpool</div><div class="f-pts">28</div><div class="form-dots"><div class="fd fd-w">W</div><div class="fd fd-w">W</div><div class="fd fd-l">L</div><div class="fd fd-w">W</div><div class="fd fd-d">D</div></div><div class="f-pts-last5">10</div></div>
-    <div class="form-row"><div class="f-pos">3</div><div class="f-club">Man City</div><div class="f-pts">26</div><div class="form-dots"><div class="fd fd-w">W</div><div class="fd fd-d">D</div><div class="fd fd-w">W</div><div class="fd fd-l">L</div><div class="fd fd-d">D</div></div><div class="f-pts-last5">8</div></div>
-    <div class="form-row"><div class="f-pos">4</div><div class="f-club">Chelsea</div><div class="f-pts">24</div><div class="form-dots"><div class="fd fd-d">D</div><div class="fd fd-w">W</div><div class="fd fd-w">W</div><div class="fd fd-w">W</div><div class="fd fd-l">L</div></div><div class="f-pts-last5">10</div></div>
-    <div class="form-row"><div class="f-pos">5</div><div class="f-club">Tottenham</div><div class="f-pts">23</div><div class="form-dots"><div class="fd fd-w">W</div><div class="fd fd-l">L</div><div class="fd fd-w">W</div><div class="fd fd-d">D</div><div class="fd fd-w">W</div></div><div class="f-pts-last5">10</div></div>
-    <div class="form-row"><div class="f-pos">6</div><div class="f-club">Aston Villa</div><div class="f-pts">21</div><div class="form-dots"><div class="fd fd-w">W</div><div class="fd fd-d">D</div><div class="fd fd-l">L</div><div class="fd fd-w">W</div><div class="fd fd-w">W</div></div><div class="f-pts-last5">10</div></div>
-    <div class="form-row"><div class="f-pos">7</div><div class="f-club">Newcastle</div><div class="f-pts">20</div><div class="form-dots"><div class="fd fd-w">W</div><div class="fd fd-w">W</div><div class="fd fd-l">L</div><div class="fd fd-l">L</div><div class="fd fd-l">L</div></div><div class="f-pts-last5">6</div></div>
-    <div class="form-row"><div class="f-pos">8</div><div class="f-club">Man United</div><div class="f-pts">18</div><div class="form-dots"><div class="fd fd-l">L</div><div class="fd fd-w">W</div><div class="fd fd-w">W</div><div class="fd fd-d">D</div><div class="fd fd-l">L</div></div><div class="f-pts-last5">7</div></div>
-    <div class="form-row"><div class="f-pos">9</div><div class="f-club">Brighton</div><div class="f-pts">17</div><div class="form-dots"><div class="fd fd-d">D</div><div class="fd fd-w">W</div><div class="fd fd-l">L</div><div class="fd fd-w">W</div><div class="fd fd-w">W</div></div><div class="f-pts-last5">10</div></div>
-    <div class="form-row"><div class="f-pos">10</div><div class="f-club">West Ham</div><div class="f-pts">16</div><div class="form-dots"><div class="fd fd-d">D</div><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-w">W</div><div class="fd fd-d">D</div></div><div class="f-pts-last5">5</div></div>
-    <div class="form-row"><div class="f-pos">11</div><div class="f-club">Fulham</div><div class="f-pts">15</div><div class="form-dots"><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-w">W</div><div class="fd fd-d">D</div><div class="fd fd-d">D</div></div><div class="f-pts-last5">5</div></div>
-    <div class="form-row"><div class="f-pos">12</div><div class="f-club">Wolves</div><div class="f-pts">14</div><div class="form-dots"><div class="fd fd-w">W</div><div class="fd fd-l">L</div><div class="fd fd-l">L</div><div class="fd fd-l">L</div><div class="fd fd-l">L</div></div><div class="f-pts-last5">3</div></div>
-    <div class="form-row"><div class="f-pos">13</div><div class="f-club">Everton</div><div class="f-pts">13</div><div class="form-dots"><div class="fd fd-d">D</div><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-w">W</div><div class="fd fd-d">D</div></div><div class="f-pts-last5">5</div></div>
-    <div class="form-row"><div class="f-pos">14</div><div class="f-club">Brentford</div><div class="f-pts">12</div><div class="form-dots"><div class="fd fd-l">L</div><div class="fd fd-w">W</div><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-w">W</div></div><div class="f-pts-last5">7</div></div>
-    <div class="form-row"><div class="f-pos">15</div><div class="f-club">Crystal Palace</div><div class="f-pts">12</div><div class="form-dots"><div class="fd fd-d">D</div><div class="fd fd-l">L</div><div class="fd fd-w">W</div><div class="fd fd-l">L</div><div class="fd fd-l">L</div></div><div class="f-pts-last5">4</div></div>
-    <div class="form-row"><div class="f-pos">16</div><div class="f-club">Nottm Forest</div><div class="f-pts">11</div><div class="form-dots"><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-l">L</div><div class="fd fd-w">W</div><div class="fd fd-w">W</div></div><div class="f-pts-last5">7</div></div>
-    <div class="form-row"><div class="f-pos">17</div><div class="f-club">Bournemouth</div><div class="f-pts">10</div><div class="form-dots"><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-d">D</div></div><div class="f-pts-last5">3</div></div>
-    <div class="form-row"><div class="f-pos">18</div><div class="f-club">Leicester</div><div class="f-pts">9</div><div class="form-dots"><div class="fd fd-l">L</div><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-l">L</div><div class="fd fd-d">D</div></div><div class="f-pts-last5">2</div></div>
-    <div class="form-row"><div class="f-pos">19</div><div class="f-club">Ipswich</div><div class="f-pts">8</div><div class="form-dots"><div class="fd fd-l">L</div><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-l">L</div><div class="fd fd-w">W</div></div><div class="f-pts-last5">4</div></div>
-    <div class="form-row"><div class="f-pos">20</div><div class="f-club">Southampton</div><div class="f-pts">5</div><div class="form-dots"><div class="fd fd-l">L</div><div class="fd fd-l">L</div><div class="fd fd-l">L</div><div class="fd fd-d">D</div><div class="fd fd-l">L</div></div><div class="f-pts-last5">1</div></div>
+    <div id="fg-body">
+      <div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:30px;">Loading form guide...</div>
+    </div>
 
     <div class="legend-bar">
       <div class="leg-item"><div class="fd fd-w" style="width:18px;height:18px;font-size:9px;">W</div>Win</div>
@@ -153,6 +136,51 @@
   <hr class="footer-divider">
   <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
 </footer>
+
+<script>
+fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/data/formguide.json?nocache=' + Date.now())
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var teams = data.teams || [];
+    var gw = data.gameweek || '--';
+    var updated = data.updated || '';
+
+    document.getElementById('fg-gw-header').textContent = 'Gameweek ' + gw;
+    document.getElementById('fg-updated').textContent = 'After Gameweek ' + gw;
+
+    if (teams.length === 0) {
+      document.getElementById('fg-body').innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:30px;">No form guide data yet</div>';
+      return;
+    }
+
+    var html = '';
+    teams.forEach(function(team, i) {
+      var pos = i + 1;
+      var dotsHtml = '';
+      var last5Pts = 0;
+
+      team.form.forEach(function(result) {
+        var cls = result === 'W' ? 'fd-w' : result === 'D' ? 'fd-d' : 'fd-l';
+        if (result === 'W') last5Pts += 3;
+        else if (result === 'D') last5Pts += 1;
+        dotsHtml += '<div class="fd ' + cls + '">' + result + '</div>';
+      });
+
+      html += '<div class="form-row">';
+      html += '<div class="f-pos">' + pos + '</div>';
+      html += '<div class="f-club">' + team.name + '</div>';
+      html += '<div class="f-pts">' + team.points + '</div>';
+      html += '<div class="form-dots">' + dotsHtml + '</div>';
+      html += '<div class="f-pts-last5">' + last5Pts + '</div>';
+      html += '</div>';
+    });
+
+    document.getElementById('fg-body').innerHTML = html;
+  })
+  .catch(function() {
+    document.getElementById('fg-body').innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:30px;">Could not load form guide</div>';
+  });
+</script>
 
 </body>
 </html>
