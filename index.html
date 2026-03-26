@@ -9,7 +9,6 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0f1923; font-family: Arial, sans-serif; color: #fff; min-height: 100vh; }
   a { text-decoration: none; color: inherit; }
-
   nav { background: #1B2A4A; border-bottom: 2px solid #F5A800; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
   .nav-logo { display: flex; flex-direction: column; padding: 10px 0; }
   .nav-logo .ofp { color: #F5A800; font-size: 30px; font-weight: 900; letter-spacing: 7px; font-family: 'Arial Black', Arial, sans-serif; line-height: 1; }
@@ -19,16 +18,13 @@
   .nav-links a:hover, .nav-links a.active { color: #F5A800; border-bottom: 3px solid #F5A800; }
   .nav-enter { background: #F5A800; color: #1B2A4A !important; border-radius: 6px; padding: 8px 16px !important; margin-left: 8px; align-self: center; border-bottom: none !important; }
   .nav-enter:hover { background: #e09600 !important; border-bottom: none !important; }
-
   .hero { background: #1B2A4A; padding: 36px 32px 30px; text-align: center; border-bottom: 1px solid rgba(245,168,0,0.2); }
   .hero h1 { color: #F5A800; font-size: 26px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 2px; margin-bottom: 10px; }
   .hero p { color: #ffffff; font-size: 14px; max-width: 560px; margin: 0 auto 20px; line-height: 1.7; }
   .hero-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
   .tag { font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 20px; letter-spacing: 1px; border: 1px solid rgba(245,168,0,0.35); background: rgba(245,168,0,0.12); color: #F5A800; }
   .tag.solid { background: #F5A800; color: #1B2A4A; border-color: #F5A800; }
-
   .main { max-width: 1100px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-
   @media (max-width: 720px) {
     .main { grid-template-columns: 1fr; }
     nav { flex-direction: column; align-items: flex-start; padding: 12px 16px; }
@@ -37,19 +33,16 @@
     .hero h1 { font-size: 18px; }
     .how-it-works { grid-template-columns: 1fr 1fr !important; }
   }
-
   .card { background: #1B2A4A; border-radius: 10px; overflow: hidden; }
   .card-header { background: rgba(245,168,0,0.1); padding: 11px 16px; border-bottom: 1px solid rgba(245,168,0,0.2); display: flex; align-items: center; justify-content: space-between; }
   .card-header h2 { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
   .card-header .gw { color: rgba(245,168,0,0.45); font-size: 10px; letter-spacing: 1px; }
   .card-body { padding: 14px 16px; }
-
   .how-it-works { background: rgba(245,168,0,0.07); border: 1px solid rgba(245,168,0,0.2); border-radius: 10px; padding: 20px 24px; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .step { text-align: center; padding: 8px; }
   .step-num { width: 32px; height: 32px; background: #F5A800; color: #1B2A4A; border-radius: 50%; font-size: 14px; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-family: 'Arial Black', Arial, sans-serif; }
   .step h3 { color: #F5A800; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
- .step p { color: #ffffff; font-size: 11px; line-height: 1.6; }
-
+  .step p { color: #ffffff; font-size: 11px; line-height: 1.6; }
   .lb-row { display: grid; grid-template-columns: 28px 1fr 52px 70px; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 7px; margin-bottom: 5px; }
   .lb-row.lb-gold { background: #F5A800; }
   .lb-row.lb-second { background: rgba(245,168,0,0.15); }
@@ -66,7 +59,6 @@
   .lb-last .lb-badge { color: rgba(255,120,120,0.8); }
   .lb-last .lb-pts { color: #ff8080; }
   .lb-last .lb-pos { color: #ff8080; }
-
   .pl-table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
   .pl-table th { color: rgba(245,168,0,0.5); font-size: 9px; font-weight: 700; letter-spacing: 1px; padding: 0 4px 8px; text-align: center; }
   .pl-table th.left { text-align: left; }
@@ -81,32 +73,27 @@
   .pl-legend { display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
   .pl-legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #ffffff; }
   .pl-dot { width: 9px; height: 9px; border-radius: 2px; }
-
- .result-row { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); gap: 8px; }
+  .result-row { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); gap: 8px; }
   .result-row:last-child { border-bottom: none; }
   .result-team { font-size: 13px; font-weight: 700; color: #ffffff; }
   .result-team.right { text-align: right; }
   .result-score { background: rgba(245,168,0,0.12); color: #F5A800; font-weight: 700; font-size: 14px; padding: 4px 12px; border-radius: 5px; border: 1px solid rgba(245,168,0,0.3); width: 70px; text-align: center; white-space: nowrap; }
-
   .about-text { color: #ffffff; font-size: 13px; line-height: 1.75; margin-bottom: 16px; }
   .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
   .btn { font-size: 11px; font-weight: 700; padding: 8px 18px; border-radius: 7px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border: 1.5px solid #F5A800; color: #F5A800; background: transparent; transition: background 0.2s; display: inline-block; }
   .btn:hover { background: rgba(245,168,0,0.1); }
   .btn.solid { background: #F5A800; color: #1B2A4A; }
   .btn.solid:hover { background: #e09600; }
-
   .view-more { text-align: center; margin-top: 12px; }
   .view-more a { color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid rgba(245,168,0,0.3); padding-bottom: 1px; transition: color 0.2s; }
   .view-more a:hover { color: #F5A800; }
-
   footer { background: #1B2A4A; border-top: 2px solid rgba(245,168,0,0.25); padding: 24px 32px 20px; text-align: center; margin-top: 24px; }
-  .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
   .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
   .footer-social a { color: rgba(245,168,0,0.6); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
   .footer-social a:hover { color: #F5A800; }
   .footer-divider { border: none; border-top: 1px solid rgba(245,168,0,0.15); margin: 14px 0; }
   .footer-tagline { color: #F5A800; font-size: 13px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 3px; margin-bottom: 12px; }
-  .footer-disclaimer { color: rgba(255,255,255,0.5); font-size: 9px; font-size: 10px; line-height: 1.7; max-width: 680px; margin: 0 auto 8px; }
+  .footer-disclaimer { color: rgba(255,255,255,0.5); font-size: 9px; line-height: 1.7; max-width: 680px; margin: 0 auto 8px; }
   .footer-copy { color: rgba(245,168,0,0.4); font-size: 10px; letter-spacing: 1px; }
 </style>
 </head>
@@ -133,7 +120,7 @@
   <p>The free Premier League prediction league on YouTube. Submit your scores each week, earn points for correct results, and compete on the leaderboard. Top scorer is crowned Top Dog. Bottom of the pile? That's our Low Rider.</p>
   <div class="hero-tags">
     <span class="tag solid">Season One &mdash; 2026/27</span>
-    <span class="tag">Gameweek 12</span>
+    <span class="tag" id="hero-gw">Gameweek --</span>
     <span class="tag">Free to Enter</span>
     <span class="tag">Premier League</span>
     <span class="tag">Every Week</span>
@@ -150,32 +137,14 @@
   </div>
 
   <div class="card">
-    <div class="card-header"><h2>This Week's Leaderboard</h2><span class="gw">GW12</span></div>
-    <div class="card-body">
-      <div class="lb-row lb-gold">
-        <div class="lb-pos">1</div><div class="lb-name">Dave M &#9733;</div><div class="lb-pts">47 pts</div><div class="lb-badge">Top Dog</div>
-      </div>
-      <div class="lb-row lb-second">
-        <div class="lb-pos">2</div><div class="lb-name">Sarah K</div><div class="lb-pts">44 pts</div><div class="lb-badge"></div>
-      </div>
-      <div class="lb-row lb-normal">
-        <div class="lb-pos">3</div><div class="lb-name">Phil T</div><div class="lb-pts">41 pts</div><div class="lb-badge"></div>
-      </div>
-      <div class="lb-row lb-normal">
-        <div class="lb-pos">4</div><div class="lb-name">Chris W</div><div class="lb-pts">39 pts</div><div class="lb-badge"></div>
-      </div>
-      <div class="lb-row lb-normal">
-        <div class="lb-pos">5</div><div class="lb-name">Nadia R</div><div class="lb-pts">37 pts</div><div class="lb-badge"></div>
-      </div>
-      <div class="lb-row lb-last">
-        <div class="lb-pos">10</div><div class="lb-name" style="color:rgba(255,255,255,0.55);">Gary F</div><div class="lb-pts">21 pts</div><div class="lb-badge">Low Rider</div>
-      </div>
-      <div class="view-more"><a href="leaderboard.html">View full leaderboard &rarr;</a></div>
+    <div class="card-header"><h2>This Week's Leaderboard</h2><span class="gw" id="lb-gw-label">GW--</span></div>
+    <div class="card-body" id="lb-body">
+      <div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">Loading...</div>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-header"><h2>Premier League Table</h2><span class="gw">GW12</span></div>
+    <div class="card-header"><h2>Premier League Table</h2><span class="gw">Live</span></div>
     <div class="card-body">
       <table class="pl-table">
         <thead><tr><th style="width:24px;"></th><th class="left">Club</th><th style="width:26px;">P</th><th style="width:26px;">W</th><th style="width:30px;">GD</th><th style="width:34px;">Pts</th></tr></thead>
@@ -201,14 +170,9 @@
   </div>
 
   <div class="card">
-    <div class="card-header"><h2>Latest Results</h2><span class="gw">GW12</span></div>
-    <div class="card-body">
-      <div class="result-row"><span class="result-team">Arsenal</span><span class="result-score">3 &ndash; 1</span><span class="result-team right">Chelsea</span></div>
-      <div class="result-row"><span class="result-team">Liverpool</span><span class="result-score">2 &ndash; 2</span><span class="result-team right">Man City</span></div>
-      <div class="result-row"><span class="result-team">Tottenham</span><span class="result-score">1 &ndash; 0</span><span class="result-team right">Newcastle</span></div>
-      <div class="result-row"><span class="result-team">Aston Villa</span><span class="result-score">2 &ndash; 1</span><span class="result-team right">West Ham</span></div>
-      <div class="result-row"><span class="result-team">Man United</span><span class="result-score">0 &ndash; 3</span><span class="result-team right">Brighton</span></div>
-      <div class="view-more"><a href="results.html">All results &rarr;</a></div>
+    <div class="card-header"><h2>Latest Results</h2><span class="gw" id="results-gw-label">GW--</span></div>
+    <div class="card-body" id="results-body">
+      <div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">Loading...</div>
     </div>
   </div>
 
@@ -220,7 +184,7 @@
       <div class="btn-row">
         <a href="enter.html" class="btn solid">Enter Free</a>
         <a href="https://youtube.com/@OnlyFoolsPredictions" class="btn" target="_blank">Watch on YouTube</a>
-       <a href="https://buymeacoffee.com/onlyfoolspredictions" class="btn" target="_blank">Support Us</a>
+        <a href="https://buymeacoffee.com/onlyfoolspredictions" class="btn" target="_blank">Support Us</a>
       </div>
     </div>
   </div>
@@ -242,6 +206,86 @@
   <hr class="footer-divider">
   <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
 </footer>
+
+<script>
+fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/data/leaderboard.json?nocache=' + Date.now())
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var standings = data.standings || [];
+    var gw = data.gameweek || 0;
+
+    document.getElementById('hero-gw').textContent = 'Gameweek ' + gw;
+    document.getElementById('lb-gw-label').textContent = 'GW' + gw;
+
+    if (standings.length === 0) {
+      document.getElementById('lb-body').innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">No data yet</div>';
+      return;
+    }
+
+    var html = '';
+    var show = standings.slice(0, 5);
+    show.forEach(function(player, i) {
+      var pos = i + 1;
+      var rowClass = 'lb-row lb-normal';
+      if (pos === 1) rowClass = 'lb-row lb-gold';
+      else if (pos === 2) rowClass = 'lb-row lb-second';
+
+      var badge = '';
+      if (pos === 1) badge = 'Top Dog';
+
+      html += '<div class="' + rowClass + '">';
+      html += '<div class="lb-pos">' + pos + '</div>';
+      html += '<div class="lb-name">' + player.username + '</div>';
+      html += '<div class="lb-pts">' + (player.totalPoints || 0) + ' pts</div>';
+      html += '<div class="lb-badge">' + badge + '</div>';
+      html += '</div>';
+    });
+
+    if (standings.length > 1) {
+      var last = standings[standings.length - 1];
+      html += '<div class="lb-row lb-last">';
+      html += '<div class="lb-pos">' + standings.length + '</div>';
+      html += '<div class="lb-name">' + last.username + '</div>';
+      html += '<div class="lb-pts">' + (last.totalPoints || 0) + ' pts</div>';
+      html += '<div class="lb-badge">Low Rider</div>';
+      html += '</div>';
+    }
+
+    html += '<div class="view-more"><a href="leaderboard.html">View full leaderboard &rarr;</a></div>';
+    document.getElementById('lb-body').innerHTML = html;
+  })
+  .catch(function() {
+    document.getElementById('lb-body').innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">Could not load leaderboard</div>';
+  });
+
+fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/data/results.json?nocache=' + Date.now())
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var gameweeks = data.gameweeks || [];
+    if (gameweeks.length === 0) {
+      document.getElementById('results-body').innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">No results yet</div>';
+      return;
+    }
+
+    var latest = gameweeks[0];
+    document.getElementById('results-gw-label').textContent = 'GW' + latest.gameweek;
+
+    var matches = latest.matches.slice(0, 5);
+    var html = '';
+    matches.forEach(function(match) {
+      html += '<div class="result-row">';
+      html += '<span class="result-team">' + match.home + '</span>';
+      html += '<span class="result-score">' + match.homeGoals + ' &ndash; ' + match.awayGoals + '</span>';
+      html += '<span class="result-team right">' + match.away + '</span>';
+      html += '</div>';
+    });
+    html += '<div class="view-more"><a href="results.html">All results &rarr;</a></div>';
+    document.getElementById('results-body').innerHTML = html;
+  })
+  .catch(function() {
+    document.getElementById('results-body').innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">Could not load results</div>';
+  });
+</script>
 
 </body>
 </html>
