@@ -79,14 +79,14 @@
   .pl-table tr.rel td.left { color: rgba(255,255,255,0.6); }
   .pl-table tr.rel td.pts { color: #ff8080; }
   .pl-legend { display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
-  .pl-legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #ffffff;
+  .pl-legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #ffffff; }
   .pl-dot { width: 9px; height: 9px; border-radius: 2px; }
 
-  .result-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); gap: 8px; }
+ .result-row { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); gap: 8px; }
   .result-row:last-child { border-bottom: none; }
-  .result-team { font-size: 13px; font-weight: 700; flex: 1; color: rgba(255,255,255,0.85); }
+  .result-team { font-size: 13px; font-weight: 700; color: #ffffff; }
   .result-team.right { text-align: right; }
-  .result-score { background: rgba(245,168,0,0.12); color: #F5A800; font-weight: 700; font-size: 14px; padding: 4px 12px; border-radius: 5px; border: 1px solid rgba(245,168,0,0.3); min-width: 60px; text-align: center; white-space: nowrap; }
+  .result-score { background: rgba(245,168,0,0.12); color: #F5A800; font-weight: 700; font-size: 14px; padding: 4px 12px; border-radius: 5px; border: 1px solid rgba(245,168,0,0.3); width: 70px; text-align: center; white-space: nowrap; }
 
   .about-text { color: #ffffff; font-size: 13px; line-height: 1.75; margin-bottom: 16px; }
   .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
