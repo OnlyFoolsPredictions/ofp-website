@@ -9,7 +9,6 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0f1923; font-family: Arial, sans-serif; color: #fff; min-height: 100vh; }
   a { text-decoration: none; color: inherit; }
-
   nav { background: #1B2A4A; border-bottom: 2px solid #F5A800; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
   .nav-logo { display: flex; flex-direction: column; padding: 10px 0; }
   .nav-logo .ofp { color: #F5A800; font-size: 30px; font-weight: 900; letter-spacing: 7px; font-family: 'Arial Black', Arial, sans-serif; line-height: 1; }
@@ -20,42 +19,30 @@
   .nav-enter { background: #F5A800; color: #1B2A4A !important; border-radius: 6px; padding: 8px 16px !important; margin-left: 8px; align-self: center; border-bottom: none !important; }
   .nav-enter:hover { background: #e09600 !important; border-bottom: none !important; }
   @media (max-width: 720px) { nav { flex-direction: column; align-items: flex-start; padding: 12px 16px; } .nav-links { flex-wrap: wrap; } .nav-links a { padding: 10px 10px; font-size: 10px; } }
-
   .page-header { background: #1B2A4A; padding: 28px 32px 24px; border-bottom: 1px solid rgba(245,168,0,0.2); }
   .page-header h1 { color: #F5A800; font-size: 22px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 2px; margin-bottom: 6px; }
   .page-header p { color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 1px; }
-
   .main { max-width: 1100px; margin: 0 auto; padding: 24px; }
-
   .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
   @media (max-width: 600px) { .stats-bar { grid-template-columns: 1fr 1fr; } }
   .stat-card { background: #1B2A4A; border-radius: 8px; padding: 14px 16px; text-align: center; }
   .stat-label { color: rgba(245,168,0,0.55); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
   .stat-value { color: #F5A800; font-size: 22px; font-weight: 900; font-family: 'Arial Black', Arial, sans-serif; }
   .stat-sub { color: rgba(255,255,255,0.4); font-size: 10px; margin-top: 3px; }
-
-  .tabs { display: flex; gap: 0; margin-bottom: 20px; border-bottom: 2px solid rgba(245,168,0,0.2); }
-  .tab { color: rgba(245,168,0,0.5); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 12px 24px; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color 0.2s; }
-  .tab:hover { color: #F5A800; }
-  .tab.active { color: #F5A800; border-bottom: 3px solid #F5A800; }
-
   .lb-card { background: #1B2A4A; border-radius: 10px; overflow: hidden; }
   .lb-card-header { background: rgba(245,168,0,0.1); padding: 12px 20px; border-bottom: 1px solid rgba(245,168,0,0.2); display: flex; align-items: center; justify-content: space-between; }
   .lb-card-header h2 { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
   .lb-card-header span { color: rgba(245,168,0,0.45); font-size: 10px; }
-
-  .lb-table-header { display: grid; grid-template-columns: 48px 44px 1fr 80px 80px 70px 80px; gap: 4px; padding: 10px 20px; border-bottom: 1px solid rgba(245,168,0,0.15); }
+  .lb-table-header { display: grid; grid-template-columns: 48px 44px 1fr 70px 80px; gap: 4px; padding: 10px 20px; border-bottom: 1px solid rgba(245,168,0,0.15); }
   .lb-table-header span { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(245,168,0,0.45); text-align: center; }
   .lb-table-header .name-h { text-align: left; }
-
-  .lb-row { display: grid; grid-template-columns: 48px 44px 1fr 80px 80px 70px 80px; align-items: center; gap: 4px; padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+  .lb-row { display: grid; grid-template-columns: 48px 44px 1fr 70px 80px; align-items: center; gap: 4px; padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
   .lb-row:last-child { border-bottom: none; }
   .lb-row:hover { background: rgba(245,168,0,0.05); }
   .lb-row.row-gold { background: rgba(245,168,0,0.18); }
   .lb-row.row-gold:hover { background: rgba(245,168,0,0.24); }
   .lb-row.row-top3 { background: rgba(245,168,0,0.08); }
   .lb-row.row-last { background: rgba(220,50,50,0.08); }
-
   .col-pos { font-size: 14px; font-weight: 700; color: rgba(245,168,0,0.7); text-align: center; }
   .row-gold .col-pos { color: #F5A800; }
   .col-move { text-align: center; font-size: 12px; }
@@ -63,26 +50,19 @@
   .badge { font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 10px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
   .badge-topdog { background: #F5A800; color: #1B2A4A; }
   .badge-lowrider { background: rgba(220,50,50,0.25); color: #ff8080; }
-  .col-stat { font-size: 13px; color: rgba(255,255,255,0.7); text-align: center; }
   .col-pts { font-size: 15px; font-weight: 700; color: #F5A800; text-align: center; }
+  .col-gw { font-size: 13px; color: rgba(255,255,255,0.7); text-align: center; }
   .row-last .col-pts { color: #ff8080; }
   .row-last .col-pos { color: #ff8080; }
   .row-last .col-name { color: rgba(255,255,255,0.6); }
   .up { color: #4cd964; }
   .down { color: #ff5c5c; }
   .same { color: rgba(255,255,255,0.2); }
-
-  .accuracy-bar { display: flex; align-items: center; gap: 10px; padding: 10px 20px; background: rgba(245,168,0,0.06); border-top: 1px solid rgba(245,168,0,0.15); }
-  .acc-label { font-size: 10px; color: rgba(245,168,0,0.5); letter-spacing: 1px; text-transform: uppercase; font-weight: 700; white-space: nowrap; }
-  .acc-track { flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
-  .acc-fill { height: 100%; background: #F5A800; border-radius: 3px; }
-  .acc-pct { font-size: 11px; color: #F5A800; font-weight: 700; white-space: nowrap; }
-
+  .empty-state { padding: 48px 20px; text-align: center; color: rgba(255,255,255,0.3); font-size: 14px; }
   .scoring-guide { background: #1B2A4A; border-radius: 10px; padding: 20px 24px; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 600px) { .scoring-guide { grid-template-columns: 1fr; } }
   .guide-title { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
   .guide-text { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.75; }
-
   footer { background: #1B2A4A; border-top: 2px solid rgba(245,168,0,0.25); padding: 24px 32px 20px; text-align: center; margin-top: 32px; }
   .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
   .footer-social a { color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
@@ -110,7 +90,7 @@
 
 <div class="page-header">
   <h1>OFP Leaderboard</h1>
-  <p>Season One &mdash; 2026/27 &nbsp;|&nbsp; Gameweek 12 of 38</p>
+  <p id="header-sub">Season One &mdash; Loading...</p>
 </div>
 
 <div class="main">
@@ -118,96 +98,40 @@
   <div class="stats-bar">
     <div class="stat-card">
       <div class="stat-label">This Week's Top Dog</div>
-      <div class="stat-value" style="font-size:16px;">Dave M</div>
-      <div class="stat-sub">47 points &mdash; GW12</div>
+      <div class="stat-value" id="topdog-name" style="font-size:16px;">--</div>
+      <div class="stat-sub" id="topdog-sub">--</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">This Week's Low Rider</div>
-      <div class="stat-value" style="font-size:16px;color:#ff8080;">Gary F</div>
-      <div class="stat-sub">21 points &mdash; GW12</div>
+      <div class="stat-value" id="lowrider-name" style="font-size:16px;color:#ff8080;">--</div>
+      <div class="stat-sub" id="lowrider-sub">--</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Total Participants</div>
-      <div class="stat-value">10</div>
+      <div class="stat-value" id="total-players">--</div>
       <div class="stat-sub">Season One</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Gameweek</div>
-      <div class="stat-value">12</div>
+      <div class="stat-value" id="gameweek-num">--</div>
       <div class="stat-sub">of 38 played</div>
     </div>
   </div>
 
-  <div class="tabs">
-    <div class="tab active">This Gameweek</div>
-    <div class="tab">Season Total</div>
-  </div>
-
   <div class="lb-card">
     <div class="lb-card-header">
-      <h2>Gameweek 12 &mdash; Full Leaderboard</h2>
-      <span>Updated after final whistle</span>
+      <h2 id="lb-title">Leaderboard</h2>
+      <span id="lb-updated">Loading...</span>
     </div>
     <div class="lb-table-header">
-      <span>Pos</span><span>Move</span><span class="name-h">Player</span>
-      <span>Get In!</span><span>Bad Shout!</span><span>GW Pts</span><span>Total Pts</span>
+      <span>Pos</span>
+      <span>Move</span>
+      <span class="name-h">Player</span>
+      <span>GW Pts</span>
+      <span>Total Pts</span>
     </div>
-
-    <div class="lb-row row-gold">
-      <div class="col-pos">1</div><div class="col-move"><span class="up">&#9650;3</span></div>
-      <div class="col-name">Dave M <span class="badge badge-topdog">Top Dog</span></div>
-      <div class="col-stat">8</div><div class="col-stat">2</div><div class="col-stat">8</div><div class="col-pts">47</div>
-    </div>
-    <div class="lb-row row-top3">
-      <div class="col-pos">2</div><div class="col-move"><span class="up">&#9650;1</span></div>
-      <div class="col-name">Sarah K</div>
-      <div class="col-stat">7</div><div class="col-stat">3</div><div class="col-stat">7</div><div class="col-pts">44</div>
-    </div>
-    <div class="lb-row row-top3">
-      <div class="col-pos">3</div><div class="col-move"><span class="down">&#9660;1</span></div>
-      <div class="col-name">Phil T</div>
-      <div class="col-stat">7</div><div class="col-stat">3</div><div class="col-stat">7</div><div class="col-pts">41</div>
-    </div>
-    <div class="lb-row">
-      <div class="col-pos">4</div><div class="col-move"><span class="up">&#9650;2</span></div>
-      <div class="col-name">Chris W</div>
-      <div class="col-stat">6</div><div class="col-stat">4</div><div class="col-stat">6</div><div class="col-pts">39</div>
-    </div>
-    <div class="lb-row">
-      <div class="col-pos">5</div><div class="col-move"><span class="same">&mdash;</span></div>
-      <div class="col-name">Nadia R</div>
-      <div class="col-stat">6</div><div class="col-stat">4</div><div class="col-stat">6</div><div class="col-pts">37</div>
-    </div>
-    <div class="lb-row">
-      <div class="col-pos">6</div><div class="col-move"><span class="down">&#9660;2</span></div>
-      <div class="col-name">Lee B</div>
-      <div class="col-stat">5</div><div class="col-stat">5</div><div class="col-stat">5</div><div class="col-pts">35</div>
-    </div>
-    <div class="lb-row">
-      <div class="col-pos">7</div><div class="col-move"><span class="up">&#9650;1</span></div>
-      <div class="col-name">Joanne P</div>
-      <div class="col-stat">5</div><div class="col-stat">5</div><div class="col-stat">5</div><div class="col-pts">32</div>
-    </div>
-    <div class="lb-row">
-      <div class="col-pos">8</div><div class="col-move"><span class="down">&#9660;1</span></div>
-      <div class="col-name">Mark H</div>
-      <div class="col-stat">4</div><div class="col-stat">6</div><div class="col-stat">4</div><div class="col-pts">29</div>
-    </div>
-    <div class="lb-row">
-      <div class="col-pos">9</div><div class="col-move"><span class="same">&mdash;</span></div>
-      <div class="col-name">Tracey S</div>
-      <div class="col-stat">4</div><div class="col-stat">6</div><div class="col-stat">4</div><div class="col-pts">26</div>
-    </div>
-    <div class="lb-row row-last">
-      <div class="col-pos">10</div><div class="col-move"><span class="down">&#9660;3</span></div>
-      <div class="col-name">Gary F <span class="badge badge-lowrider">Low Rider</span></div>
-      <div class="col-stat">3</div><div class="col-stat">7</div><div class="col-stat">3</div><div class="col-pts">21</div>
-    </div>
-
-    <div class="accuracy-bar">
-      <span class="acc-label">Get In! Rate</span>
-      <div class="acc-track"><div class="acc-fill" style="width:55%;"></div></div>
-      <span class="acc-pct">55% correct this week</span>
+    <div id="lb-rows">
+      <div class="empty-state">Loading leaderboard...</div>
     </div>
   </div>
 
@@ -239,6 +163,65 @@
   <hr class="footer-divider">
   <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
 </footer>
+
+<script>
+fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/data/leaderboard.json?nocache=' + Date.now())
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var standings = data.standings || [];
+    var gw = data.gameweek || 0;
+    var updated = data.updated || 'Not yet updated';
+
+    document.getElementById('header-sub').innerHTML = 'Season One &mdash; 2026/27 &nbsp;|&nbsp; Gameweek ' + gw + ' of 38';
+    document.getElementById('gameweek-num').textContent = gw;
+    document.getElementById('total-players').textContent = standings.length;
+    document.getElementById('lb-title').textContent = 'Gameweek ' + gw + ' — Full Leaderboard';
+    document.getElementById('lb-updated').textContent = 'Updated: ' + updated;
+
+    if (standings.length === 0) {
+      document.getElementById('lb-rows').innerHTML = '<div class="empty-state">No data yet — check back after the first gameweek!</div>';
+      return;
+    }
+
+    var top = standings[0];
+    var bottom = standings[standings.length - 1];
+
+    document.getElementById('topdog-name').textContent = top.username;
+    document.getElementById('topdog-sub').textContent = top.totalPoints + ' points — GW' + gw;
+    document.getElementById('lowrider-name').textContent = bottom.username;
+    document.getElementById('lowrider-sub').textContent = bottom.totalPoints + ' points — GW' + gw;
+
+    var html = '';
+    standings.forEach(function(player, i) {
+      var pos = i + 1;
+      var rowClass = 'lb-row';
+      if (pos === 1) rowClass += ' row-gold';
+      else if (pos <= 3) rowClass += ' row-top3';
+      else if (pos === standings.length) rowClass += ' row-last';
+
+      var moveHTML = '<span class="same">&mdash;</span>';
+      if (player.move > 0) moveHTML = '<span class="up">&#9650;' + player.move + '</span>';
+      else if (player.move < 0) moveHTML = '<span class="down">&#9660;' + Math.abs(player.move) + '</span>';
+
+      var badgeHTML = '';
+      if (pos === 1) badgeHTML = '<span class="badge badge-topdog">Top Dog</span>';
+      if (pos === standings.length) badgeHTML = '<span class="badge badge-lowrider">Low Rider</span>';
+
+      html += '<div class="' + rowClass + '">';
+      html += '<div class="col-pos">' + pos + '</div>';
+      html += '<div class="col-move">' + moveHTML + '</div>';
+      html += '<div class="col-name">' + player.username + ' ' + badgeHTML + '</div>';
+      html += '<div class="col-gw">' + (player.gwPoints || 0) + '</div>';
+      html += '<div class="col-pts">' + (player.totalPoints || 0) + '</div>';
+      html += '</div>';
+    });
+
+    document.getElementById('lb-rows').innerHTML = html;
+  })
+  .catch(function() {
+    document.getElementById('lb-rows').innerHTML = '<div class="empty-state">Could not load leaderboard data. Please try again later.</div>';
+  });
+</script>
 
 </body>
 </html>
