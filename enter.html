@@ -130,38 +130,30 @@
   </div>
 
   <div class="entry-card">
-    <div class="entry-card-header">
-      <h2>Gameweek 13 &mdash; Predictions Form</h2>
+ <div class="entry-card-header">
+      <h2 id="fixtures-title">Loading fixtures...</h2>
       <p>Season One &mdash; 2026/27 Premier League</p>
     </div>
     <div class="entry-card-body">
 
-      <div class="deadline-bar">
+   <div class="deadline-bar">
         <div class="deadline-icon">&#9201;</div>
-        <div class="deadline-text"><strong>Deadline:</strong> Friday 21 November 2026 at 19:00 &mdash; before the first kick-off</div>
+        <div class="deadline-text" id="deadline-text"><strong>Deadline:</strong> Loading...</div>
       </div>
 
-      <p class="fixtures-label">Gameweek 13 Fixtures</p>
-
-      <div class="fixture-item"><div class="fix-home">Chelsea</div><div class="fix-vs">vs</div><div class="fix-away">Arsenal</div></div>
-      <div class="fixture-item"><div class="fix-home">Man City</div><div class="fix-vs">vs</div><div class="fix-away">Liverpool</div></div>
-      <div class="fixture-item"><div class="fix-home">Newcastle</div><div class="fix-vs">vs</div><div class="fix-away">Tottenham</div></div>
-      <div class="fixture-item"><div class="fix-home">West Ham</div><div class="fix-vs">vs</div><div class="fix-away">Aston Villa</div></div>
-      <div class="fixture-item"><div class="fix-home">Brighton</div><div class="fix-vs">vs</div><div class="fix-away">Man United</div></div>
-      <div class="fixture-item"><div class="fix-home">Fulham</div><div class="fix-vs">vs</div><div class="fix-away">Everton</div></div>
-      <div class="fixture-item"><div class="fix-home">Brentford</div><div class="fix-vs">vs</div><div class="fix-away">Wolves</div></div>
-      <div class="fixture-item"><div class="fix-home">Nottm Forest</div><div class="fix-vs">vs</div><div class="fix-away">Crystal Palace</div></div>
-      <div class="fixture-item"><div class="fix-home">Leicester</div><div class="fix-vs">vs</div><div class="fix-away">Bournemouth</div></div>
-      <div class="fixture-item"><div class="fix-home">Ipswich</div><div class="fix-vs">vs</div><div class="fix-away">Southampton</div></div>
+   <p class="fixtures-label" id="fixtures-label">Upcoming Fixtures</p>
+      <div id="fixtures-list">
+        <div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">Loading fixtures...</div>
+      </div>
 
       <hr class="form-divider">
 
       <div class="form-embed-note">
-        <p>Ready to predict? Click the button below to open the <strong>Gameweek 13 OFP Prediction Form</strong> on Google Forms. It takes less than 2 minutes to fill in. You can also use the Form Guide to check team form before you predict.</p>
+      <p id="form-note">Ready to predict? Click the button below to open the <strong>OFP Prediction Form</strong> on Google Forms. It takes less than 2 minutes to fill in. You can also use the Form Guide to check team form before you predict.</p>
         <div class="btn-group">
-        <a href="https://forms.gle/6A2mR2pEVKFQKpNp9" target="_blank" class="btn solid">OFP Weekend Form &rarr;</a> <a href="https://forms.gle/RLxUYpGNXfYG4fic9" target="_blank" class="btn solid">EDP Midweek Form &rarr;</a>
-Then commit the changes. Tell me when done.
-          <a href="formguide.html" class="btn">Check Form Guide</a>
+      <a href="https://forms.gle/6A2mR2pEVKFQKpNp9" target="_blank" class="btn solid enter-btn">OFP Weekend Form &rarr;</a>
+        <a href="https://forms.gle/RLxUYpGNXfYG4fic9" target="_blank" class="btn solid">EDP Midweek Form &rarr;</a>
+        <a href="formguide.html" class="btn">Check Form Guide</a>
         </div>
       </div>
 
@@ -216,6 +208,49 @@ Then commit the changes. Tell me when done.
   <hr class="footer-divider">
   <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
 </footer>
+
+<script>
+fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/data/fixtures.json?nocache=' + Date.now())
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var gw = data.gameweek || '';
+    var type = data.type || 'OFP';
+    var deadline = data.deadline || '';
+    var fixtures = data.fixtures || [];
+
+    var title = type === 'EDP'
+      ? 'EDP ' + (data.edpNum || '') + ' &mdash; Midweek Predictions Form'
+      : 'Gameweek ' + gw + ' &mdash; Predictions Form';
+
+    document.getElementById('fixtures-title').innerHTML = title;
+    document.getElementById('fixtures-label').textContent = (type === 'EDP' ? 'EDP Midweek' : 'Gameweek ' + gw) + ' Fixtures';
+
+    if (deadline) {
+      document.getElementById('deadline-text').innerHTML = '<strong>Deadline:</strong> ' + deadline + ' &mdash; before the first kick-off';
+    }
+
+    var html = '';
+    if (fixtures.length === 0) {
+      html = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">No fixtures available yet &mdash; check back soon</div>';
+    } else {
+      fixtures.forEach(function(f) {
+        html += '<div class="fixture-item">';
+        html += '<div class="fix-home">' + f.home + '</div>';
+        html += '<div class="fix-vs">vs</div>';
+        html += '<div class="fix-away">' + f.away + '</div>';
+        html += '</div>';
+      });
+    }
+    document.getElementById('fixtures-list').innerHTML = html;
+
+    var noteType = type === 'EDP' ? 'EDP Midweek' : 'Gameweek ' + gw + ' OFP';
+    document.getElementById('form-note').innerHTML = 'Ready to predict? Click the button below to open the <strong>' + noteType + ' Prediction Form</strong> on Google Forms. It takes less than 2 minutes to fill in. You can also use the Form Guide to check team form before you predict.';
+  })
+  .catch(function() {
+    document.getElementById('fixtures-title').textContent = 'Predictions Form';
+    document.getElementById('fixtures-list').innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">Could not load fixtures &mdash; check back soon</div>';
+  });
+</script>
 
 </body>
 </html>
