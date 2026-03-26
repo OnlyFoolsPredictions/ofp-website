@@ -9,7 +9,6 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0f1923; font-family: Arial, sans-serif; color: #fff; min-height: 100vh; }
   a { text-decoration: none; color: inherit; }
-
   nav { background: #1B2A4A; border-bottom: 2px solid #F5A800; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
   .nav-logo { display: flex; flex-direction: column; padding: 10px 0; }
   .nav-logo .ofp { color: #F5A800; font-size: 30px; font-weight: 900; letter-spacing: 7px; font-family: 'Arial Black', Arial, sans-serif; line-height: 1; }
@@ -20,40 +19,34 @@
   .nav-enter { background: #F5A800; color: #1B2A4A !important; border-radius: 6px; padding: 8px 16px !important; margin-left: 8px; align-self: center; border-bottom: none !important; }
   .nav-enter:hover { background: #e09600 !important; border-bottom: none !important; }
   @media (max-width: 720px) { nav { flex-direction: column; align-items: flex-start; padding: 12px 16px; } .nav-links { flex-wrap: wrap; } .nav-links a { padding: 10px 10px; font-size: 10px; } }
-
   .page-header { background: #1B2A4A; padding: 28px 32px 24px; border-bottom: 1px solid rgba(245,168,0,0.2); }
   .page-header h1 { color: #F5A800; font-size: 22px; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 2px; margin-bottom: 6px; }
   .page-header p { color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 1px; }
-
   .main { max-width: 900px; margin: 0 auto; padding: 24px; }
-
   .gw-selector { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
   .gw-btn { background: rgba(245,168,0,0.08); border: 1px solid rgba(245,168,0,0.2); color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; padding: 7px 14px; border-radius: 6px; cursor: pointer; letter-spacing: 1px; transition: all 0.2s; }
   .gw-btn:hover { background: rgba(245,168,0,0.15); color: #F5A800; }
   .gw-btn.active { background: #F5A800; color: #1B2A4A; border-color: #F5A800; }
-
   .section-head { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(245,168,0,0.2); }
-
   .results-block { background: #1B2A4A; border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
   .results-block-header { background: rgba(245,168,0,0.1); padding: 10px 18px; border-bottom: 1px solid rgba(245,168,0,0.2); display: flex; justify-content: space-between; align-items: center; }
   .results-block-header .day { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
   .results-block-header .date { color: rgba(245,168,0,0.45); font-size: 10px; letter-spacing: 1px; }
-
-  .result-row { display: grid; grid-template-columns: 1fr 90px 1fr; align-items: center; gap: 10px; padding: 11px 18px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .result-row { display: grid; grid-template-columns: 1fr 90px 1fr; align-items: start; gap: 10px; padding: 11px 18px; border-bottom: 1px solid rgba(255,255,255,0.04); }
   .result-row:last-child { border-bottom: none; }
   .result-row:hover { background: rgba(245,168,0,0.04); }
   .team-home { font-size: 13px; font-weight: 700; color: #fff; text-align: right; }
   .team-away { font-size: 13px; font-weight: 700; color: #fff; text-align: left; }
+  .team-name { margin-bottom: 4px; }
+  .scorers { font-size: 10px; color: rgba(255,255,255,0.45); line-height: 1.6; }
   .score-box { background: rgba(245,168,0,0.12); border: 1px solid rgba(245,168,0,0.3); border-radius: 6px; padding: 6px 0; text-align: center; }
   .score-box .score { color: #F5A800; font-size: 16px; font-weight: 900; font-family: 'Arial Black', Arial, sans-serif; letter-spacing: 2px; display: block; }
   .score-box .status { color: rgba(245,168,0,0.5); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; display: block; margin-top: 2px; }
-
+  .empty-state { padding: 48px 20px; text-align: center; color: rgba(255,255,255,0.3); font-size: 14px; background: #1B2A4A; border-radius: 10px; }
   .key-bar { background: #1B2A4A; border-radius: 10px; padding: 14px 20px; margin-top: 4px; display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
   .key-label { color: rgba(245,168,0,0.5); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
   .key-correct { color: #4cd964; font-size: 11px; font-weight: 700; }
   .key-wrong { color: #ff5c5c; font-size: 11px; font-weight: 700; }
-  .key-note { color: rgba(255,255,255,0.35); font-size: 11px; }
-
   footer { background: #1B2A4A; border-top: 2px solid rgba(245,168,0,0.25); padding: 24px 32px 20px; text-align: center; margin-top: 32px; }
   .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
   .footer-social a { color: rgba(245,168,0,0.6); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
@@ -81,89 +74,18 @@
 
 <div class="page-header">
   <h1>Results</h1>
-  <p>Season One &mdash; 2026/27 &nbsp;|&nbsp; All Premier League Results</p>
+  <p id="header-sub">Season One &mdash; Loading...</p>
 </div>
 
 <div class="main">
-
-  <div class="gw-selector">
-    <div class="gw-btn">GW1</div><div class="gw-btn">GW2</div><div class="gw-btn">GW3</div>
-    <div class="gw-btn">GW4</div><div class="gw-btn">GW5</div><div class="gw-btn">GW6</div>
-    <div class="gw-btn">GW7</div><div class="gw-btn">GW8</div><div class="gw-btn">GW9</div>
-    <div class="gw-btn">GW10</div><div class="gw-btn">GW11</div><div class="gw-btn active">GW12</div>
-  </div>
-
-  <p class="section-head">Gameweek 12 &mdash; Results</p>
-
-  <div class="results-block">
-    <div class="results-block-header"><span class="day">Friday</span><span class="date">14 November 2026</span></div>
-    <div class="result-row">
-      <div class="team-home">Arsenal</div>
-      <div class="score-box"><span class="score">3&ndash;1</span><span class="status">FT</span></div>
-      <div class="team-away">Chelsea</div>
-    </div>
-  </div>
-
-  <div class="results-block">
-    <div class="results-block-header"><span class="day">Saturday</span><span class="date">15 November 2026</span></div>
-    <div class="result-row">
-      <div class="team-home">Liverpool</div>
-      <div class="score-box"><span class="score">2&ndash;2</span><span class="status">FT</span></div>
-      <div class="team-away">Man City</div>
-    </div>
-    <div class="result-row">
-      <div class="team-home">Tottenham</div>
-      <div class="score-box"><span class="score">1&ndash;0</span><span class="status">FT</span></div>
-      <div class="team-away">Newcastle</div>
-    </div>
-    <div class="result-row">
-      <div class="team-home">Aston Villa</div>
-      <div class="score-box"><span class="score">2&ndash;1</span><span class="status">FT</span></div>
-      <div class="team-away">West Ham</div>
-    </div>
-    <div class="result-row">
-      <div class="team-home">Man United</div>
-      <div class="score-box"><span class="score">0&ndash;3</span><span class="status">FT</span></div>
-      <div class="team-away">Brighton</div>
-    </div>
-    <div class="result-row">
-      <div class="team-home">Everton</div>
-      <div class="score-box"><span class="score">1&ndash;1</span><span class="status">FT</span></div>
-      <div class="team-away">Fulham</div>
-    </div>
-    <div class="result-row">
-      <div class="team-home">Wolves</div>
-      <div class="score-box"><span class="score">0&ndash;2</span><span class="status">FT</span></div>
-      <div class="team-away">Brentford</div>
-    </div>
-  </div>
-
-  <div class="results-block">
-    <div class="results-block-header"><span class="day">Sunday</span><span class="date">16 November 2026</span></div>
-    <div class="result-row">
-      <div class="team-home">Crystal Palace</div>
-      <div class="score-box"><span class="score">1&ndash;2</span><span class="status">FT</span></div>
-      <div class="team-away">Nottm Forest</div>
-    </div>
-    <div class="result-row">
-      <div class="team-home">Bournemouth</div>
-      <div class="score-box"><span class="score">0&ndash;0</span><span class="status">FT</span></div>
-      <div class="team-away">Leicester</div>
-    </div>
-    <div class="result-row">
-      <div class="team-home">Southampton</div>
-      <div class="score-box"><span class="score">1&ndash;3</span><span class="status">FT</span></div>
-      <div class="team-away">Ipswich</div>
-    </div>
-  </div>
-
+  <div class="gw-selector" id="gw-selector"></div>
+  <p class="section-head" id="section-head">Loading results...</p>
+  <div id="results-container"><div class="empty-state">Loading...</div></div>
   <div class="key-bar">
-    <span class="key-label">Your Predictions</span>
+    <span class="key-label">Key</span>
     <span class="key-correct">&#10003; Get In! &mdash; correct result</span>
     <span class="key-wrong">&#10007; Bad Shout! &mdash; wrong result</span>
-    <span class="key-note">Sign in to see your personal prediction results alongside each fixture</span>
   </div>
-
 </div>
 
 <footer>
@@ -181,6 +103,89 @@
   <hr class="footer-divider">
   <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
 </footer>
+
+<script>
+var allGameweeks = [];
+var currentGW = 0;
+
+fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/data/results.json?nocache=' + Date.now())
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    allGameweeks = data.gameweeks || [];
+    if (allGameweeks.length === 0) {
+      document.getElementById('header-sub').innerHTML = 'Season One &mdash; No results yet';
+      document.getElementById('section-head').textContent = 'No results available yet';
+      document.getElementById('results-container').innerHTML = '<div class="empty-state">Results will appear here after the first gameweek.</div>';
+      return;
+    }
+    currentGW = allGameweeks[0].gameweek;
+    document.getElementById('header-sub').innerHTML = 'Season One &mdash; 2026/27 &nbsp;|&nbsp; Gameweek ' + currentGW;
+    buildGWSelectorButtons();
+    showGameweek(currentGW);
+  })
+  .catch(function() {
+    document.getElementById('results-container').innerHTML = '<div class="empty-state">Could not load results. Please try again later.</div>';
+  });
+
+function buildGWSelectorButtons() {
+  var html = '';
+  allGameweeks.forEach(function(gw) {
+    var activeClass = gw.gameweek === currentGW ? ' active' : '';
+    html += '<div class="gw-btn' + activeClass + '" onclick="showGameweek(' + gw.gameweek + ')">GW' + gw.gameweek + '</div>';
+  });
+  document.getElementById('gw-selector').innerHTML = html;
+}
+
+function showGameweek(gwNum) {
+  currentGW = gwNum;
+  var gwData = null;
+  allGameweeks.forEach(function(gw) {
+    if (gw.gameweek === gwNum) gwData = gw;
+  });
+  if (!gwData) return;
+
+  var btns = document.querySelectorAll('.gw-btn');
+  btns.forEach(function(btn) {
+    btn.classList.remove('active');
+    if (btn.textContent === 'GW' + gwNum) btn.classList.add('active');
+  });
+
+  document.getElementById('section-head').textContent = 'Gameweek ' + gwNum + ' — Results';
+
+  var byDay = {};
+  var dayOrder = [];
+  gwData.matches.forEach(function(match) {
+    var day = match.day;
+    if (!byDay[day]) {
+      byDay[day] = [];
+      dayOrder.push(day);
+    }
+    byDay[day].push(match);
+  });
+
+  var html = '';
+  dayOrder.forEach(function(day) {
+    var matches = byDay[day];
+    var dateStr = matches[0].date;
+    html += '<div class="results-block">';
+    html += '<div class="results-block-header"><span class="day">' + day + '</span><span class="date">' + dateStr + '</span></div>';
+    matches.forEach(function(match) {
+      var homeScorers = match.homeScorers || [];
+      var awayScorers = match.awayScorers || [];
+      var homeScorerHTML = homeScorers.map(function(s) { return s; }).join('<br>');
+      var awayScorerHTML = awayScorers.map(function(s) { return s; }).join('<br>');
+      html += '<div class="result-row">';
+      html += '<div class="team-home"><div class="team-name">' + match.home + '</div><div class="scorers">' + homeScorerHTML + '</div></div>';
+      html += '<div class="score-box"><span class="score">' + match.homeGoals + '&ndash;' + match.awayGoals + '</span><span class="status">FT</span></div>';
+      html += '<div class="team-away"><div class="team-name">' + match.away + '</div><div class="scorers">' + awayScorerHTML + '</div></div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  });
+
+  document.getElementById('results-container').innerHTML = html;
+}
+</script>
 
 </body>
 </html>
