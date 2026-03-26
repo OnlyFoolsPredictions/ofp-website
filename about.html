@@ -93,7 +93,7 @@
     <a href="results.html">Results</a>
     <a href="formguide.html">Form Guide</a>
     <a href="about.html" class="active">About</a>
-    <a href="enter.html" class="nav-enter">Enter Free</a>
+   <a href="enter.html" class="nav-enter enter-btn">Enter Free</a>
   </div>
 </nav>
 
@@ -105,6 +105,19 @@
 <div class="main">
 
   <!-- WHAT IS OFP -->
+  <!-- JOINING MID-SEASON -->
+  <div class="section-card" style="border: 2px solid #F5A800;">
+    <div class="section-card-header" style="background: rgba(245,168,0,0.15);"><h2>🏆 Joining Mid-Season? Get In!</h2></div>
+    <div class="section-card-body">
+      <p class="body-text">It's never too late to join Only Fools Predictions. If you enter for the first time mid-season, you'll automatically start with the same points total as the current <strong>bottom player</strong> on the leaderboard — so you're straight in the mix, not starting from zero.</p>
+      <p class="body-text">New players are shown with a <strong>NEW</strong> badge on the leaderboard for their first 5 gameweeks. After that, you're just one of the pack — climbing or dropping like everyone else. Every correct prediction counts. Can you be Top Dog?</p>
+      <div class="cta-row">
+        <a href="enter.html" class="btn solid enter-btn">Enter Free Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
   <div class="section-card">
     <div class="section-card-header"><h2>What is OFP?</h2></div>
     <div class="section-card-body">
@@ -112,7 +125,7 @@
       <p class="body-text">Results are tracked, points are awarded for correct results, and the leaderboard updates each week. At the end of each gameweek, the top scorer earns the title of <strong>Top Dog</strong> and the bottom scorer gets the wooden spoon as <strong>Low Rider</strong>.</p>
       <p class="body-text">It's completely free to enter. No registration, no subscription, no catches. Just Premier League football and friendly competition.</p>
       <div class="cta-row">
-        <a href="enter.html" class="btn solid">Enter Free This Week</a>
+       <a href="enter.html" class="btn solid enter-btn">Enter Free This Week</a>
         <a href="https://youtube.com/@OnlyFoolsPredictions" class="btn" target="_blank">Subscribe on YouTube</a>
       </div>
     </div>
@@ -148,6 +161,10 @@
   <div class="section-card">
     <div class="section-card-header"><h2>FAQ</h2></div>
     <div class="section-card-body">
+    <div class="faq-item">
+        <div class="faq-q">What happens if I join mid-season?</div>
+        <div class="faq-a">No problem — you can join at any point during the season. You'll automatically start with the same points as the current bottom player on the leaderboard, so you're never out of the running from day one. New players are also shown with a <strong style="color:#F5A800;">NEW</strong> badge for their first 5 gameweeks.</div>
+      </div>
       <div class="faq-item">
         <div class="faq-q">Is it really free?</div>
         <div class="faq-a">Yes, completely free. No account needed, no subscription. Just subscribe to our YouTube channel and submit your predictions via the weekly Google Form.</div>
@@ -211,6 +228,19 @@
   <hr class="footer-divider">
   <p class="footer-copy">&copy; 2026 OnlyFoolsPredictions.com &nbsp;&mdash;&nbsp; Season One</p>
 </footer>
+
+<script>
+  (function() {
+    var day = new Date().getDay(); // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
+    var isWeekend = (day === 5 || day === 6 || day === 0); // Fri, Sat, Sun = OFP
+    var url = isWeekend
+      ? 'https://forms.gle/6A2mR2pEVKFQKpNp9'
+      : 'https://forms.gle/RLxUYpGNXfYG4fic9';
+    document.querySelectorAll('.enter-btn').forEach(function(btn) {
+      btn.href = url;
+    });
+  })();
+</script>
 
 </body>
 </html>
