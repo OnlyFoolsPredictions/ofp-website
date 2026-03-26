@@ -50,6 +50,7 @@
   .badge { font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 10px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
   .badge-topdog { background: #F5A800; color: #1B2A4A; }
   .badge-lowrider { background: rgba(220,50,50,0.25); color: #ff8080; }
+  .badge-new { background: rgba(100,200,100,0.25); color: #80ff80; }
   .col-pts { font-size: 15px; font-weight: 700; color: #F5A800; text-align: center; }
   .col-gw { font-size: 13px; color: rgba(255,255,255,0.7); text-align: center; }
   .row-last .col-pts { color: #ff8080; }
@@ -206,6 +207,7 @@ fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/d
       var badgeHTML = '';
       if (pos === 1) badgeHTML = '<span class="badge badge-topdog">Top Dog</span>';
       if (pos === standings.length) badgeHTML = '<span class="badge badge-lowrider">Low Rider</span>';
+      if (player.isNew) badgeHTML += '<span class="badge badge-new">New</span>';
 
       html += '<div class="' + rowClass + '">';
       html += '<div class="col-pos">' + pos + '</div>';
