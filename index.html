@@ -111,7 +111,7 @@
     <a href="results.html">Results</a>
     <a href="formguide.html">Form Guide</a>
     <a href="about.html">About</a>
-    <a href="enter.html" class="nav-enter">Enter Free</a>
+   <a href="enter.html" class="nav-enter enter-btn">Enter Free</a>
   </div>
 </nav>
 
@@ -182,7 +182,10 @@
       <p class="about-text">Only Fools Predictions is a free Premier League prediction league based on YouTube. Every gameweek you submit your score predictions, we track your results, and the leaderboard updates automatically. Think you know football better than everyone else? Prove it.</p>
       <p class="about-text">Top of the weekly leaderboard earns the title of <strong style="color:#F5A800;">This Week's Top Dog</strong>. Bottom of the table gets the wooden spoon as <strong style="color:rgba(255,100,100,0.9);">This Week's Low Rider</strong>.</p>
       <div class="btn-row">
-        <a href="enter.html" class="btn solid">Enter Free</a>
+        <a href="enter.html" class="btn solid enter-btn">Enter Free</a>
+   <p style="margin-top:10px;font-size:11px;color:#F5A800;font-family:Arial,sans-serif;">
+  🏆 Joining mid-season? You'll start level with the current bottom player — every point counts!
+</p>
         <a href="https://youtube.com/@OnlyFoolsPredictions" class="btn" target="_blank">Watch on YouTube</a>
         <a href="https://buymeacoffee.com/onlyfoolspredictions" class="btn" target="_blank">Support Us</a>
       </div>
@@ -285,6 +288,19 @@ fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/d
   .catch(function() {
     document.getElementById('results-body').innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">Could not load results</div>';
   });
+</script>
+
+<script>
+  (function() {
+    var day = new Date().getDay(); // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
+    var isWeekend = (day === 5 || day === 6 || day === 0); // Fri, Sat, Sun = OFP
+    var url = isWeekend
+      ? 'https://forms.gle/6A2mR2pEVKFQKpNp9'
+      : 'https://forms.gle/RLxUYpGNXfYG4fic9';
+    document.querySelectorAll('.enter-btn').forEach(function(btn) {
+      btn.href = url;
+    });
+  })();
 </script>
 
 </body>
