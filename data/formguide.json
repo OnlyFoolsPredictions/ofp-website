@@ -1,5 +1,106 @@
 {
-  "updated": "",
-  "gameweek": 0,
-  "teams": []
+  "updated": "26/03/2026 20:03",
+  "gameweek": 1,
+  "teams": [
+    {
+      "name": "Liverpool",
+      "points": 84,
+      "form": []
+    },
+    {
+      "name": "Arsenal",
+      "points": 74,
+      "form": []
+    },
+    {
+      "name": "Manchester City",
+      "points": 71,
+      "form": []
+    },
+    {
+      "name": "Chelsea",
+      "points": 69,
+      "form": []
+    },
+    {
+      "name": "Newcastle",
+      "points": 66,
+      "form": []
+    },
+    {
+      "name": "Aston Villa",
+      "points": 66,
+      "form": []
+    },
+    {
+      "name": "Nottingham Forest",
+      "points": 65,
+      "form": []
+    },
+    {
+      "name": "Brighton",
+      "points": 61,
+      "form": []
+    },
+    {
+      "name": "Bournemouth",
+      "points": 56,
+      "form": []
+    },
+    {
+      "name": "Brentford",
+      "points": 56,
+      "form": []
+    },
+    {
+      "name": "Fulham",
+      "points": 54,
+      "form": []
+    },
+    {
+      "name": "Crystal Palace",
+      "points": 53,
+      "form": []
+    },
+    {
+      "name": "Everton",
+      "points": 48,
+      "form": []
+    },
+    {
+      "name": "West Ham",
+      "points": 43,
+      "form": []
+    },
+    {
+      "name": "Manchester United",
+      "points": 42,
+      "form": []
+    },
+    {
+      "name": "Wolves",
+      "points": 42,
+      "form": []
+    },
+    {
+      "name": "Tottenham",
+      "points": 38,
+      "form": []
+    },
+    {
+      "name": "Leicester",
+      "points": 25,
+      "form": []
+    },
+    {
+      "name": "Ipswich",
+      "points": 22,
+      "form": []
+    },
+    {
+      "name": "Southampton",
+      "points": 12,
+      "form": []
+    }
+  ]
 }
