@@ -1,7 +1,48 @@
 {
-  "updated": "",
-  "gameweek": 0,
+  "updated": "26/03/2026 19:28",
+  "gameweek": 2,
   "type": "OFP",
-  "deadline": "",
-  "fixtures": []
+  "deadline": "Saturday 24 August 2024 at 11:00",
+  "fixtures": [
+    {
+      "home": "Brighton",
+      "away": "Manchester United"
+    },
+    {
+      "home": "Fulham",
+      "away": "Leicester"
+    },
+    {
+      "home": "Southampton",
+      "away": "Nottingham Forest"
+    },
+    {
+      "home": "Tottenham",
+      "away": "Everton"
+    },
+    {
+      "home": "Manchester City",
+      "away": "Ipswich"
+    },
+    {
+      "home": "Crystal Palace",
+      "away": "West Ham"
+    },
+    {
+      "home": "Aston Villa",
+      "away": "Arsenal"
+    },
+    {
+      "home": "Bournemouth",
+      "away": "Newcastle"
+    },
+    {
+      "home": "Wolves",
+      "away": "Chelsea"
+    },
+    {
+      "home": "Liverpool",
+      "away": "Brentford"
+    }
+  ]
 }
