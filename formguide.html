@@ -35,11 +35,11 @@
   .form-card-header h2 { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
   .form-card-header span { color: rgba(245,168,0,0.45); font-size: 10px; }
 
- .form-head { display: grid; grid-template-columns: 30px 90px 32px 1fr 36px; gap: 4px; padding: 9px 12px; border-bottom: 1px solid rgba(245,168,0,0.1); }
+ .form-head { display: grid; grid-template-columns: 30px 90px 32px 1fr; gap: 4px; padding: 9px 12px; border-bottom: 1px solid rgba(245,168,0,0.1); }
   .form-head span { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(245,168,0,0.4); text-align: center; }
   .form-head .h-club { text-align: left; }
 
-  .form-row { display: grid; grid-template-columns: 30px 90px 32px 1fr 36px; align-items: center; gap: 4px; padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+ .form-row { display: grid; grid-template-columns: 30px 90px 32px 1fr; align-items: center; gap: 4px; padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
   .form-row:last-child { border-bottom: none; }
   .form-row:hover { background: rgba(245,168,0,0.04); }
 
@@ -55,10 +55,10 @@
 
   .f-pts-last5 { font-size: 12px; color: rgba(255,255,255,0.55); text-align: center; }
 
-  @media (max-width: 600px) {
-    .form-head { grid-template-columns: 26px 75px 26px 1fr 28px; gap: 2px; padding: 8px 6px; }
-    .form-row { grid-template-columns: 26px 75px 26px 1fr 28px; gap: 2px; padding: 7px 6px; }
-    .fd { width: 12px; height: 12px; font-size: 7px; }
+ @media (max-width: 600px) {
+    .form-head { grid-template-columns: 26px 75px 26px 1fr; gap: 2px; padding: 8px 6px; }
+    .form-row { grid-template-columns: 26px 75px 26px 1fr; gap: 2px; padding: 7px 6px; }
+    .fd { width: 15px; height: 15px; font-size: 8px; }
     .form-dots { gap: 2px; }
     .f-pos { font-size: 10px; }
     .f-club { font-size: 10px; }
@@ -118,7 +118,7 @@
       <span id="fg-updated">Loading...</span>
     </div>
 <div class="form-head">
-      <span>Pos</span><span class="h-club">Club</span><span>Pts</span><span>Last 5</span><span>L5</span>
+    <span>Pos</span><span class="h-club">Club</span><span>Pts</span><span>Last 5</span>
     </div>
 
     <div id="fg-body">
@@ -184,8 +184,7 @@ fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/d
       html += '<div class="f-pos">' + pos + '</div>';
       html += '<div class="f-club">' + team.name + '</div>';
       html += '<div class="f-pts">' + team.points + '</div>';
-      html += '<div class="form-dots">' + dotsHtml + '</div>';
-      html += '<div class="f-pts-last5">' + last5Pts + '</div>';
+    html += '<div class="form-dots">' + dotsHtml + '</div>';
       html += '</div>';
     });
 
