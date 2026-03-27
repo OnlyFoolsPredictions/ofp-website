@@ -32,7 +32,13 @@
   .results-block-header { background: rgba(245,168,0,0.1); padding: 10px 18px; border-bottom: 1px solid rgba(245,168,0,0.2); display: flex; justify-content: space-between; align-items: center; }
   .results-block-header .day { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
   .results-block-header .date { color: rgba(245,168,0,0.45); font-size: 10px; letter-spacing: 1px; }
-  .result-row { display: grid; grid-template-columns: 1fr 90px 1fr; align-items: start; gap: 10px; padding: 11px 18px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+ .result-row { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: start; gap: 6px; padding: 11px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  @media (max-width: 600px) {
+    .result-row { grid-template-columns: 1fr 60px 1fr; gap: 4px; padding: 9px 10px; }
+    .team-home { font-size: 11px; }
+    .team-away { font-size: 11px; }
+    .score-box .score { font-size: 13px; }
+  }
   .result-row:last-child { border-bottom: none; }
   .result-row:hover { background: rgba(245,168,0,0.04); }
   .team-home { font-size: 13px; font-weight: 700; color: #fff; text-align: right; }
