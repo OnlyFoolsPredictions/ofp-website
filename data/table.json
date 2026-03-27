@@ -1,5 +1,5 @@
 {
-  "updated": "26/03/2026 19:50",
+  "updated": "27/03/2026 10:35",
   "gameweek": 1,
   "teams": [
     {
@@ -23,7 +23,7 @@
       "move": 0
     },
     {
-      "name": "Manchester City",
+      "name": "Man City",
       "played": 38,
       "won": 21,
       "drawn": 8,
@@ -63,7 +63,7 @@
       "move": 0
     },
     {
-      "name": "Nottingham Forest",
+      "name": "Nott'm Forest",
       "played": 38,
       "won": 19,
       "drawn": 8,
@@ -143,7 +143,7 @@
       "move": 0
     },
     {
-      "name": "Manchester United",
+      "name": "Man Utd",
       "played": 38,
       "won": 11,
       "drawn": 9,
