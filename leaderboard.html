@@ -227,8 +227,8 @@ fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/d
       else if (player.move < 0) moveHTML = '<span class="down">&#9660;' + Math.abs(player.move) + '</span>';
 
       var badgeHTML = '';
-      if (pos === 1) badgeHTML = '<span class="badge badge-topdog">Top Dog</span>';
-      if (pos === standings.length) badgeHTML = '<span class="badge badge-lowrider">Low Rider</span>';
+    if (pos === 1) badgeHTML = '<span class="badge badge-topdog mobile-badge" data-full="Top Dog" data-short="★1">Top Dog</span>';
+      if (pos === standings.length) badgeHTML = '<span class="badge badge-lowrider mobile-badge" data-full="Low Rider" data-short="↓Last">Low Rider</span>';
       if (player.isNew) badgeHTML += '<span class="badge badge-new">New</span>';
 
       html += '<div class="' + rowClass + '">';
@@ -253,6 +253,11 @@ fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/d
       .then(function() { console.log('OFP service worker registered'); })
       .catch(function(err) { console.log('SW registration failed:', err); });
   }
+ if (window.innerWidth <= 600) {
+      document.querySelectorAll('.mobile-badge').forEach(function(b) {
+        b.textContent = b.getAttribute('data-short');
+      });
+    }
 </script>
 </body>
 </html>
