@@ -36,10 +36,20 @@
   .lb-card-header { background: rgba(245,168,0,0.1); padding: 12px 20px; border-bottom: 1px solid rgba(245,168,0,0.2); display: flex; align-items: center; justify-content: space-between; }
   .lb-card-header h2 { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
   .lb-card-header span { color: rgba(245,168,0,0.45); font-size: 10px; }
-  .lb-table-header { display: grid; grid-template-columns: 48px 44px 1fr 70px 80px; gap: 4px; padding: 10px 20px; border-bottom: 1px solid rgba(245,168,0,0.15); }
+.lb-table-header { display: grid; grid-template-columns: 36px 36px 1fr 52px 60px; gap: 4px; padding: 10px 16px; border-bottom: 1px solid rgba(245,168,0,0.15); }
   .lb-table-header span { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(245,168,0,0.45); text-align: center; }
   .lb-table-header .name-h { text-align: left; }
-  .lb-row { display: grid; grid-template-columns: 48px 44px 1fr 70px 80px; align-items: center; gap: 4px; padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+  .lb-row { display: grid; grid-template-columns: 36px 36px 1fr 52px 60px; align-items: center; gap: 4px; padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+
+  @media (max-width: 600px) {
+    .lb-table-header { grid-template-columns: 30px 28px 1fr 40px 48px; gap: 2px; padding: 8px 10px; }
+    .lb-row { grid-template-columns: 30px 28px 1fr 40px 48px; gap: 2px; padding: 8px 10px; }
+    .col-name { font-size: 12px; gap: 4px; flex-wrap: wrap; }
+    .badge { font-size: 8px; padding: 2px 5px; }
+    .col-pts { font-size: 12px; }
+    .col-gw { font-size: 12px; }
+    .col-pos { font-size: 12px; }
+  }
   .lb-row:last-child { border-bottom: none; }
   .lb-row:hover { background: rgba(245,168,0,0.05); }
   .lb-row.row-gold { background: rgba(245,168,0,0.18); }
