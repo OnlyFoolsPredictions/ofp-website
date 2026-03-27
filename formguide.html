@@ -35,17 +35,24 @@
   .form-card-header h2 { color: #F5A800; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
   .form-card-header span { color: rgba(245,168,0,0.45); font-size: 10px; }
 
-  .form-head { display: grid; grid-template-columns: 36px 1fr 36px 160px 44px; gap: 4px; padding: 9px 16px; border-bottom: 1px solid rgba(245,168,0,0.1); }
+ .form-head { display: grid; grid-template-columns: 30px 90px 32px 1fr 36px; gap: 4px; padding: 9px 12px; border-bottom: 1px solid rgba(245,168,0,0.1); }
   .form-head span { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(245,168,0,0.4); text-align: center; }
   .form-head .h-club { text-align: left; }
 
-  .form-row { display: grid; grid-template-columns: 36px 1fr 36px 160px 44px; align-items: center; gap: 4px; padding: 8px 16px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+  .form-row { display: grid; grid-template-columns: 30px 90px 32px 1fr 36px; align-items: center; gap: 4px; padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
   .form-row:last-child { border-bottom: none; }
   .form-row:hover { background: rgba(245,168,0,0.04); }
 
-  .f-pos { font-size: 12px; font-weight: 700; color: rgba(245,168,0,0.6); text-align: center; }
-  .f-club { font-size: 13px; font-weight: 700; color: #fff; }
-  .f-pts { font-size: 13px; font-weight: 700; color: #F5A800; text-align: center; }
+  .f-pos { font-size: 11px; font-weight: 700; color: rgba(245,168,0,0.6); text-align: center; }
+  .f-club { font-size: 11px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .f-pts { font-size: 11px; font-weight: 700; color: #F5A800; text-align: center; }
+
+  @media (max-width: 600px) {
+    .form-head { grid-template-columns: 26px 80px 28px 1fr 30px; gap: 2px; padding: 8px 8px; }
+    .form-row { grid-template-columns: 26px 80px 28px 1fr 30px; gap: 2px; padding: 7px 8px; }
+    .fd { width: 18px; height: 18px; font-size: 9px; }
+    .form-dots { gap: 2px; }
+  }
 
   .form-dots { display: flex; gap: 4px; justify-content: center; }
   .fd { width: 22px; height: 22px; border-radius: 50%; font-size: 10px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -106,8 +113,8 @@
     <h2>Last 5 Results &mdash; All Clubs</h2>
       <span id="fg-updated">Loading...</span>
     </div>
-  <div class="form-head">
-      <span></span><span class="h-club">Club</span><span>Pos</span><span>Last 5</span><span>Pts</span>
+<div class="form-head">
+      <span>Pos</span><span class="h-club">Club</span><span>Pts</span><span>Last 5</span><span>L5</span>
     </div>
 
     <div id="fg-body">
@@ -185,13 +192,6 @@ fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/d
   });
 </script>
 
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-      .then(function() { console.log('OFP service worker registered'); })
-      .catch(function(err) { console.log('SW registration failed:', err); });
-  }
-</script>
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
