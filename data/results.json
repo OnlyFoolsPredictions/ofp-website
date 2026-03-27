@@ -1,12 +1,12 @@
 {
-  "updated": "26/03/2026 16:59",
+  "updated": "27/03/2026 11:28",
   "season": 1,
   "gameweeks": [
     {
       "gameweek": 38,
       "matches": [
         {
-          "home": "Manchester United",
+          "home": "Man Utd",
           "away": "Aston Villa",
           "homeGoals": 2,
           "awayGoals": 0,
@@ -37,7 +37,7 @@
         },
         {
           "home": "Fulham",
-          "away": "Manchester City",
+          "away": "Man City",
           "homeGoals": 0,
           "awayGoals": 2,
           "day": "Sunday",
@@ -96,7 +96,7 @@
           "awayScorers": []
         },
         {
-          "home": "Nottingham Forest",
+          "home": "Nott'm Forest",
           "away": "Chelsea",
           "homeGoals": 0,
           "awayGoals": 1,
@@ -122,7 +122,7 @@
         },
         {
           "home": "Chelsea",
-          "away": "Manchester United",
+          "away": "Man Utd",
           "homeGoals": 1,
           "awayGoals": 0,
           "day": "Friday",
@@ -142,7 +142,7 @@
         },
         {
           "home": "West Ham",
-          "away": "Nottingham Forest",
+          "away": "Nott'm Forest",
           "homeGoals": 1,
           "awayGoals": 2,
           "day": "Sunday",
@@ -191,7 +191,7 @@
           "awayScorers": []
         },
         {
-          "home": "Manchester City",
+          "home": "Man City",
           "away": "Bournemouth",
           "homeGoals": 3,
           "awayGoals": 1,
@@ -237,7 +237,7 @@
         },
         {
           "home": "Southampton",
-          "away": "Manchester City",
+          "away": "Man City",
           "homeGoals": 0,
           "awayGoals": 0,
           "day": "Saturday",
@@ -276,7 +276,7 @@
           "awayScorers": []
         },
         {
-          "home": "Manchester United",
+          "home": "Man Utd",
           "away": "West Ham",
           "homeGoals": 0,
           "awayGoals": 2,
@@ -296,7 +296,7 @@
           "awayScorers": []
         },
         {
-          "home": "Nottingham Forest",
+          "home": "Nott'm Forest",
           "away": "Leicester",
           "homeGoals": 2,
           "awayGoals": 2,
@@ -321,7 +321,7 @@
       "gameweek": 35,
       "matches": [
         {
-          "home": "Manchester City",
+          "home": "Man City",
           "away": "Wolves",
           "homeGoals": 1,
           "awayGoals": 0,
@@ -392,7 +392,7 @@
         },
         {
           "home": "Brentford",
-          "away": "Manchester United",
+          "away": "Man Utd",
           "homeGoals": 4,
           "awayGoals": 3,
           "day": "Sunday",
@@ -412,7 +412,7 @@
         },
         {
           "home": "Crystal Palace",
-          "away": "Nottingham Forest",
+          "away": "Nott'm Forest",
           "homeGoals": 1,
           "awayGoals": 1,
           "day": "Monday",
@@ -426,7 +426,7 @@
       "gameweek": 34,
       "matches": [
         {
-          "home": "Manchester City",
+          "home": "Man City",
           "away": "Aston Villa",
           "homeGoals": 2,
           "awayGoals": 1,
@@ -497,7 +497,7 @@
         },
         {
           "home": "Bournemouth",
-          "away": "Manchester United",
+          "away": "Man Utd",
           "homeGoals": 1,
           "awayGoals": 1,
           "day": "Sunday",
@@ -516,7 +516,7 @@
           "awayScorers": []
         },
         {
-          "home": "Nottingham Forest",
+          "home": "Nott'm Forest",
           "away": "Brentford",
           "homeGoals": 0,
           "awayGoals": 2,
