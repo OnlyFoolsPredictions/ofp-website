@@ -62,7 +62,18 @@
 
   .legend { display: flex; gap: 20px; flex-wrap: wrap; padding: 14px 16px; border-top: 1px solid rgba(245,168,0,0.12); background: rgba(245,168,0,0.03); }
  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 10px; color: #ffffff; }
-  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  @media (max-width: 600px) {
+    .pl-head { grid-template-columns: 28px 24px 1fr 28px 36px 40px; gap: 2px; padding: 8px 10px; }
+    .pl-row { grid-template-columns: 28px 24px 1fr 28px 36px 40px; gap: 2px; padding: 7px 10px; }
+    .col-hide { display: none; }
+    .c-club { font-size: 12px; }
+    .c-stat { font-size: 11px; }
+    .c-pts { font-size: 12px; }
+    .c-pos { font-size: 11px; }
+    .c-move { font-size: 10px; }
+  }
 
   footer { background: #1B2A4A; border-top: 2px solid rgba(245,168,0,0.25); padding: 24px 32px 20px; text-align: center; margin-top: 32px; }
  .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
@@ -107,9 +118,9 @@
       <span id="table-updated">Loading...</span>
     </div>
 
-  <div class="pl-head">
-      <span></span><span></span><span class="h-club">Club</span>
-      <span>P</span><span>W</span><span>D</span><span>L</span><span>GD</span><span>Pts</span>
+ <div class="pl-head">
+      <span>Pos</span><span></span><span class="h-club">Club</span>
+      <span>P</span><span class="col-hide">W</span><span class="col-hide">D</span><span class="col-hide">L</span><span>GD</span><span>Pts</span>
     </div>
 
     <div id="pl-table-body">
@@ -170,7 +181,7 @@ fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/d
       else if (team.move < 0) moveHtml = '<span class="down">&#9660;' + Math.abs(team.move) + '</span>';
       else moveHtml = '<span class="same">&mdash;</span>';
 
-      var gd = team.gd >= 0 ? '+' + team.gd : team.gd;
+     var gd = team.gd > 0 ? '+' + team.gd : team.gd;
 
       if (pos === 5) html += '<div class="zone-divider"></div>';
       if (pos === 7) html += '<div class="zone-divider"></div>';
@@ -180,10 +191,10 @@ fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/d
       html += '<div class="c-pos">' + pos + '</div>';
       html += '<div class="c-move">' + moveHtml + '</div>';
       html += '<div class="c-club">' + team.name + '</div>';
-      html += '<div class="c-stat">' + team.played + '</div>';
-      html += '<div class="c-stat">' + team.won + '</div>';
-      html += '<div class="c-stat">' + team.drawn + '</div>';
-      html += '<div class="c-stat">' + team.lost + '</div>';
+     html += '<div class="c-stat">' + team.played + '</div>';
+      html += '<div class="c-stat col-hide">' + team.won + '</div>';
+      html += '<div class="c-stat col-hide">' + team.drawn + '</div>';
+      html += '<div class="c-stat col-hide">' + team.lost + '</div>';
       html += '<div class="c-stat">' + gd + '</div>';
       html += '<div class="c-pts">' + team.points + '</div>';
       html += '</div>';
