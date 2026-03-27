@@ -149,19 +149,10 @@
   <div class="card">
     <div class="card-header"><h2>Premier League Table</h2><span class="gw">Live</span></div>
     <div class="card-body">
-      <table class="pl-table">
-        <thead><tr><th style="width:24px;"></th><th class="left">Club</th><th style="width:26px;">P</th><th style="width:26px;">W</th><th style="width:30px;">GD</th><th style="width:34px;">Pts</th></tr></thead>
-        <tbody>
-          <tr class="cl"><td class="pos">1</td><td class="left">Arsenal</td><td>12</td><td>9</td><td>+22</td><td class="pts">29</td></tr>
-          <tr class="cl"><td class="pos">2</td><td class="left">Liverpool</td><td>12</td><td>9</td><td>+19</td><td class="pts">28</td></tr>
-          <tr class="cl"><td class="pos">3</td><td class="left">Man City</td><td>12</td><td>8</td><td>+17</td><td class="pts">26</td></tr>
-          <tr class="cl"><td class="pos">4</td><td class="left">Chelsea</td><td>12</td><td>7</td><td>+14</td><td class="pts">24</td></tr>
-          <tr><td class="pos">5</td><td class="left">Tottenham</td><td>12</td><td>7</td><td>+9</td><td class="pts">23</td></tr>
-          <tr><td class="pos">6</td><td class="left">Aston Villa</td><td>12</td><td>6</td><td>+7</td><td class="pts">21</td></tr>
-          <tr><td class="pos">7</td><td class="left">Newcastle</td><td>12</td><td>6</td><td>+5</td><td class="pts">20</td></tr>
-          <tr class="rel"><td class="pos">18</td><td class="left">Leicester</td><td>12</td><td>2</td><td>-12</td><td class="pts">9</td></tr>
-          <tr class="rel"><td class="pos">19</td><td class="left">Ipswich</td><td>12</td><td>2</td><td>-15</td><td class="pts">8</td></tr>
-          <tr class="rel"><td class="pos">20</td><td class="left">Southampton</td><td>12</td><td>1</td><td>-22</td><td class="pts">5</td></tr>
+  <table class="pl-table">
+        <thead><tr><th style="width:24px;">Pos</th><th class="left">Club</th><th style="width:26px;">P</th><th style="width:30px;">GD</th><th style="width:34px;">Pts</th></tr></thead>
+        <tbody id="home-table-body">
+          <tr><td colspan="5" style="text-align:center;color:rgba(255,255,255,0.4);padding:16px;font-size:12px;">Loading...</td></tr>
         </tbody>
       </table>
       <div class="pl-legend">
@@ -263,6 +254,33 @@ fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/d
   .catch(function() {
     document.getElementById('lb-body').innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center;padding:20px;">Could not load leaderboard</div>';
   });
+
+fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/data/table.json?nocache=' + Date.now())
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var teams = data.teams || [];
+    if (teams.length === 0) return;
+    var show = [];
+    var top7 = teams.slice(0, 7);
+    var bottom3 = teams.slice(17, 20);
+    show = top7.concat(bottom3);
+    var html = '';
+    show.forEach(function(team, i) {
+      var pos = i < 7 ? i + 1 : i + 11;
+      var rowClass = pos <= 4 ? 'cl' : pos >= 18 ? 'rel' : '';
+      var gd = team.gd > 0 ? '+' + team.gd : team.gd;
+      html += '<tr class="' + rowClass + '">';
+      html += '<td class="pos">' + pos + '</td>';
+      html += '<td class="left">' + team.name + '</td>';
+      html += '<td>' + team.played + '</td>';
+      html += '<td>' + gd + '</td>';
+      html += '<td class="pts">' + team.points + '</td>';
+      html += '</tr>';
+      if (i === 6) html += '<tr><td colspan="5" style="padding:2px 0;background:rgba(220,50,50,0.15);"></td></tr>';
+    });
+    document.getElementById('home-table-body').innerHTML = html;
+  })
+  .catch(function() {});
 
 fetch('https://raw.githubusercontent.com/OnlyFoolsPredictions/ofp-website/main/data/results.json?nocache=' + Date.now())
   .then(function(r) { return r.json(); })
