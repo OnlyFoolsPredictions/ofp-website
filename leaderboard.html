@@ -57,15 +57,16 @@
   .col-pts { font-size: 15px; font-weight: 700; color: #F5A800; text-align: center; }
   .col-gw { font-size: 13px; color: #ffffff; text-align: center; }
 
-  @media (max-width: 600px) {
-    .lb-table-header { grid-template-columns: 30px 28px 1fr 40px 48px; gap: 2px; padding: 8px 10px; }
-    .lb-row { grid-template-columns: 30px 28px 1fr 40px 48px; gap: 2px; padding: 8px 10px; }
-    .col-name { font-size: 12px; gap: 4px; flex-wrap: nowrap; overflow: hidden; }
-    .col-name span:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-    .badge { font-size: 8px; padding: 2px 4px; flex-shrink: 0; }
-    .col-pts { font-size: 12px; }
-    .col-gw { font-size: 12px; }
-    .col-pos { font-size: 12px; }
+@media (max-width: 600px) {
+    .lb-table-header { grid-template-columns: 26px 24px 1fr 36px 44px; gap: 2px; padding: 8px 8px; }
+    .lb-row { grid-template-columns: 26px 24px 1fr 36px 44px; gap: 2px; padding: 8px 8px; }
+    .col-name { font-size: 11px; gap: 3px; flex-wrap: nowrap; overflow: hidden; white-space: nowrap; }
+    .badge { font-size: 7px; padding: 1px 3px; flex-shrink: 0; letter-spacing: 0; }
+    .badge-topdog::after { content: ''; }
+    .col-pts { font-size: 11px; }
+    .col-gw { font-size: 11px; }
+    .col-pos { font-size: 11px; }
+    .col-move { font-size: 10px; }
   }
   .row-last .col-pts { color: #ff8080; }
   .row-last .col-pos { color: #ff8080; }
