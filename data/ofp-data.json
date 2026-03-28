@@ -1,0 +1,135 @@
+{
+  "audioFile": "voiceover.mp3",
+  "scriptSections": {
+    "intro": 20,
+    "results": 20,
+    "leaderboard": 20,
+    "lookingAhead": 20,
+    "signOff": 20
+  },
+  "gameweek": 1,
+  "topDog": {
+    "username": "Test Player 3",
+    "points": 4
+  },
+  "lowRider": {
+    "username": "Test Player2",
+    "points": 0
+  },
+  "results": [
+    {
+      "home": "Man Utd",
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "away": "Aston Villa"
+    },
+    {
+      "home": "Newcastle",
+      "homeGoals": 0,
+      "awayGoals": 1,
+      "away": "Everton"
+    },
+    {
+      "home": "Bournemouth",
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "away": "Leicester"
+    },
+    {
+      "home": "Fulham",
+      "homeGoals": 0,
+      "awayGoals": 2,
+      "away": "Man City"
+    },
+    {
+      "home": "Wolves",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "away": "Brentford"
+    },
+    {
+      "home": "Liverpool",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "away": "Crystal Palace"
+    },
+    {
+      "home": "Southampton",
+      "homeGoals": 1,
+      "awayGoals": 2,
+      "away": "Arsenal"
+    },
+    {
+      "home": "Tottenham",
+      "homeGoals": 1,
+      "awayGoals": 4,
+      "away": "Brighton"
+    },
+    {
+      "home": "Ipswich",
+      "homeGoals": 1,
+      "awayGoals": 3,
+      "away": "West Ham"
+    },
+    {
+      "home": "Nott'm Forest",
+      "homeGoals": 0,
+      "awayGoals": 1,
+      "away": "Chelsea"
+    }
+  ],
+  "leaderboard": [
+    {
+      "pos": 1,
+      "username": "Test Player 3",
+      "points": 4
+    },
+    {
+      "pos": 2,
+      "username": "Test Player2",
+      "points": 0
+    }
+  ],
+  "nextFixtures": [
+    {
+      "home": "Brighton",
+      "away": "Manchester United"
+    },
+    {
+      "home": "Fulham",
+      "away": "Leicester"
+    },
+    {
+      "home": "Southampton",
+      "away": "Nottingham Forest"
+    },
+    {
+      "home": "Tottenham",
+      "away": "Everton"
+    },
+    {
+      "home": "Manchester City",
+      "away": "Ipswich"
+    },
+    {
+      "home": "Crystal Palace",
+      "away": "West Ham"
+    },
+    {
+      "home": "Aston Villa",
+      "away": "Arsenal"
+    },
+    {
+      "home": "Bournemouth",
+      "away": "Newcastle"
+    },
+    {
+      "home": "Wolves",
+      "away": "Chelsea"
+    },
+    {
+      "home": "Liverpool",
+      "away": "Brentford"
+    }
+  ]
+}
