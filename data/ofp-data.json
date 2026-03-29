@@ -1,11 +1,11 @@
 {
   "audioFile": "voiceover.mp3",
   "scriptSections": {
-    "intro": 75,
-    "results": 122,
-    "leaderboard": 52,
-    "lookingAhead": 47,
-    "signOff": 30
+    "intro": 73,
+    "results": 158,
+    "leaderboard": 51,
+    "lookingAhead": 30,
+    "signOff": 20
   },
   "gameweek": 1,
   "topDog": {
@@ -93,7 +93,7 @@
   "nextFixtures": [
     {
       "home": "Brighton",
-      "away": "Manchester United"
+      "away": "Man Utd"
     },
     {
       "home": "Fulham",
@@ -101,14 +101,14 @@
     },
     {
       "home": "Southampton",
-      "away": "Nottingham Forest"
+      "away": "Nott'm Forest"
     },
     {
       "home": "Tottenham",
       "away": "Everton"
     },
     {
-      "home": "Manchester City",
+      "home": "Man City",
       "away": "Ipswich"
     },
     {
