@@ -1,10 +1,11 @@
 {
   "audioFile": "voiceover.mp3",
   "scriptSections": {
-    "intro": 73,
-    "results": 158,
-    "leaderboard": 51,
-    "lookingAhead": 30,
+    "intro": 72,
+    "results": 200,
+    "leaderboard": 67,
+    "plTable": 41,
+    "formGuide": 47,
     "signOff": 20
   },
   "gameweek": 1,
@@ -131,5 +132,17 @@
       "home": "Liverpool",
       "away": "Brentford"
     }
-  ]
+  ],
+  "formTeams": {
+    "hot": [
+      "Man City",
+      "Chelsea",
+      "Brighton"
+    ],
+    "poor": [
+      "Tottenham",
+      "Ipswich",
+      "Southampton"
+    ]
+  }
 }
