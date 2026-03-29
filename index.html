@@ -25,12 +25,7 @@
   .tag { font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 20px; letter-spacing: 1px; border: 1px solid rgba(245,168,0,0.35); background: rgba(245,168,0,0.12); color: #F5A800; }
   .tag.solid { background: #F5A800; color: #1B2A4A; border-color: #F5A800; }
   .main { max-width: 1100px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  @media (max-width: 720px) {
-    .main { grid-template-columns: 1fr; }
-    nav { flex-direction: column; align-items: flex-start; padding: 8px 16px; }
-    .nav-links { flex-wrap: wrap; }
-    .nav-links a { padding: 6px 8px; font-size: 10px; }
-    .hero h1 { font-size: 18px; }
+ @media (max-width: 720px) { nav { flex-direction: column; align-items: flex-start; padding: 8px 16px; } .nav-links { flex-wrap: wrap; gap: 0; } .nav-links a { padding: 4px 8px; font-size: 10px; } .nav-enter { padding: 5px 10px !important; margin-left: 4px; margin-top: 4px; margin-bottom: 4px; align-self: flex-start; } }
     .how-it-works { grid-template-columns: 1fr 1fr !important; }
   }
   .card { background: #1B2A4A; border-radius: 10px; overflow: hidden; }
