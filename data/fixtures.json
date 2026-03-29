@@ -1,12 +1,12 @@
 {
-  "updated": "26/03/2026 19:28",
+  "updated": "29/03/2026 00:35",
   "gameweek": 2,
   "type": "OFP",
   "deadline": "Saturday 24 August 2024 at 11:00",
   "fixtures": [
     {
       "home": "Brighton",
-      "away": "Manchester United"
+      "away": "Man Utd"
     },
     {
       "home": "Fulham",
@@ -14,14 +14,14 @@
     },
     {
       "home": "Southampton",
-      "away": "Nottingham Forest"
+      "away": "Nott'm Forest"
     },
     {
       "home": "Tottenham",
       "away": "Everton"
     },
     {
-      "home": "Manchester City",
+      "home": "Man City",
       "away": "Ipswich"
     },
     {
