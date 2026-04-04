@@ -1,11 +1,11 @@
 {
   "audioFile": "voiceover.mp3",
   "scriptSections": {
-    "intro": 60,
+    "intro": 64,
     "results": 176,
-    "leaderboard": 58,
-    "plTable": 33,
-    "formGuide": 56,
+    "leaderboard": 68,
+    "plTable": 40,
+    "formGuide": 49,
     "signOff": 20
   },
   "gameweek": 1,
