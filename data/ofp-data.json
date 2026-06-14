@@ -134,7 +134,15 @@
     }
   ],
   "formTeams": {
-    "hot": [],
-    "poor": []
+    "hot": [
+      "Man City",
+      "Chelsea",
+      "Brighton"
+    ],
+    "poor": [
+      "Tottenham",
+      "Ipswich",
+      "Southampton"
+    ]
   }
 }
